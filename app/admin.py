@@ -5,7 +5,7 @@ from models import Session
 
 
 class SessionAdmin(admin.ModelAdmin):
-    list_display = ['client_name', 'start_date', 'end_date', 'duration', 'type', 'notes']
+    list_display = ['client_name', 'date', 'start_time', 'duration', 'end_time', 'type', 'notes']
     list_filter = ['client_name']
 
 
