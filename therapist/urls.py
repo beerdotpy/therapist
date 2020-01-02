@@ -14,13 +14,14 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from app.views import parse_csv
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^create_session/', parse_csv)
+    url(r'^create_session/', parse_csv),
+    url(r'^advanced_filters/', include('advanced_filters.urls'))
 ]
 admin.site.site_header = "Functional Learning Centre Inc"
 admin.site.site_title = "Functional Learning Centre Inc"

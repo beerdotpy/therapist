@@ -12,3 +12,6 @@ class Session(models.Model):
     end_time = models.TimeField()
     type = models.CharField(max_length=200)
     notes = models.TextField()
+
+    class Meta:
+        ordering = ['client_name', 'date', 'start_time']
