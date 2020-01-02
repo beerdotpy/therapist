@@ -14,5 +14,7 @@ class ProfileAdmin(AdminAdvancedFiltersMixin, admin.ModelAdmin):
         'client_name'
     )
 
+    list_filter = ['client_name']
+
 
 admin.site.register(Session, ProfileAdmin)
