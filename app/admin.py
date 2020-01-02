@@ -10,6 +10,7 @@ class ProfileAdmin(AdminAdvancedFiltersMixin, admin.ModelAdmin):
     # specify which fields can be selected in the advanced filter
     # creation form
     advanced_filter_fields = (
+        'client_name',
         'client_name'
     )
 
