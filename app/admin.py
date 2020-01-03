@@ -6,7 +6,13 @@ from advanced_filters.admin import AdminAdvancedFiltersMixin
 
 
 class ProfileAdmin(AdminAdvancedFiltersMixin, admin.ModelAdmin):
-    list_display = ['client_name', 'date', 'start_time', 'duration', 'end_time', 'type', 'notes']
+    def start_time_format(self, obj):
+        return obj.start_time.strftime("%H:%M:%S %p")
+
+    def end_time_format(self, obj):
+        return obj.end_time.strftime("%H:%M:%S %p")
+
+    list_display = ['client_name', 'date', 'start_time_format', 'duration', 'end_time_format', 'type', 'notes']
     # specify which fields can be selected in the advanced filter
     # creation form
     advanced_filter_fields = (
