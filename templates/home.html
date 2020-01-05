@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head><title>Functional Learning Centre Inc</title></head>
+<head><title>Functional Learning Centre Inc</title>
+<style>
+            table {
+              border-collapse: collapse;
+              border: 1px solid black;
+            }
+
+            th,td {
+              border: 1px solid black;
+            }
+
+            table.a {
+              table-layout: auto;
+              width: 100%;
+            }
+
+            table.b {
+              table-layout: fixed;
+              width: 180px;
+            }
+
+            table.c {
+              table-layout: auto;
+              width: 100%;
+            }
+
+            table.d {
+              table-layout: fixed;
+              width: 100%;
+            }
+        </style>
+</head>
 <body>
 
 <h1><center>Functional Learning Centre Inc</center></h1>
@@ -10,6 +41,53 @@
         <input type="file" name="csv_file" id="fileToUpload"><br><br>
         <input type="submit" value="Submit" name="submit">
     </form>
+</div>
+<br>
+<div>
+    <table class="a">
+        <tr>
+            <th style="padding:7px">Client Name</th>
+            <th style="padding:7px">Client Initial</th>
+            <th style="padding:7px">Date</th>
+            <th style="padding:7px">Start Time</th>
+            <th style="padding:7px">Duration</th>
+            <th style="padding:7px">End Time</th>
+            <th style="padding:7px">Error Type</th>
+        </tr>
+            {% for i in duplicate %}
+        <tr>
+            <td style="padding:7px"><center>{{i.client_name}}</td>
+            <td style="padding:7px"><center>{{i.client_initial}}</td>
+            <td style="padding:7px"><center>{{i.date}}</td>
+            <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+            <td style="padding:7px"><center>{{i.duration}}</td>
+            <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+            <td style="padding:7px"><center>{{i.error}}</td>
+        </tr>
+            {% endfor %}
+        {% for i in overlap %}
+        <tr>
+            <td style="padding:7px"><center>{{i.client_name}}</td>
+            <td style="padding:7px"><center>{{i.client_initial}}</td>
+            <td style="padding:7px"><center>{{i.date}}</td>
+            <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+            <td style="padding:7px"><center>{{i.duration}}</td>
+            <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+            <td style="padding:7px"><center>{{i.error}}</td>
+        </tr>
+            {% endfor %}
+        {% for i in gap %}
+        <tr>
+            <td style="padding:7px"><center>{{i.client_name}}</td>
+            <td style="padding:7px"><center>{{i.client_initial}}</td>
+            <td style="padding:7px"><center>{{i.date}}</td>
+            <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+            <td style="padding:7px"><center>{{i.duration}}</td>
+            <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+            <td style="padding:7px"><center>{{i.error}}</td>
+        </tr>
+            {% endfor %}
+    </table>
 </div>
 
 </body>
