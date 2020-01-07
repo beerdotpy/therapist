@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head><title>Functional Learning Centre Inc</title>
+<head>
+    <meta charset="UTF-8">
+    <title>Functional Learning Centre Inc</title>
 <style>
             table {
               border-collapse: collapse;
@@ -52,6 +54,16 @@
         <input type="submit" value="{{button_type}}" name="{{button_type}}">
     </form>
     {% endif %}
+    {% if button_type == 'Submit' %}
+    <form action="" method="post">
+        <input name="button" value="{{button_type}}" hidden>
+        <input id="data" name="data" value="{{result | safe}}" hidden>
+        <input type="submit" value="{{button_type}}" name="{{button_type}}">
+    </form>
+    {% endif %}
+    {% if button_type == 'Saved' %}
+    <p>SAVED</p>
+    {% endif %}
 
 </div>
 <br>
@@ -64,6 +76,8 @@
             <th style="padding:7px">Start Time</th>
             <th style="padding:7px">Duration</th>
             <th style="padding:7px">End Time</th>
+            <th style="padding:7px">Notes</th>
+            <th style="padding:7px">Type</th>
             <th style="padding:7px">Error Type</th>
         </tr>
             {% for i in result %}
@@ -75,6 +89,8 @@
                         <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
                         <td style="padding:7px"><center>{{i.duration}}</td>
                         <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.notes}}</td>
+                        <td style="padding:7px"><center>{{i.type}}</td>
                         <td style="padding:7px"><center>{{i.error}}</td>
                     </tr>
                 {% elif i.error == 'Overlap' %}
@@ -85,6 +101,8 @@
                         <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
                         <td style="padding:7px"><center>{{i.duration}}</td>
                         <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.notes}}</td>
+                        <td style="padding:7px"><center>{{i.type}}</td>
                         <td style="padding:7px"><center>{{i.error}}</td>
                     </tr>
                 {% elif i.error == 'Duplicate' %}
@@ -95,6 +113,8 @@
                         <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
                         <td style="padding:7px"><center>{{i.duration}}</td>
                         <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.notes}}</td>
+                        <td style="padding:7px"><center>{{i.type}}</td>
                         <td style="padding:7px"><center>{{i.error}}</td>
                     </tr>
                 {% elif i.error == 'Cancellation' %}
@@ -105,6 +125,8 @@
                         <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
                         <td style="padding:7px"><center>{{i.duration}}</td>
                         <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.notes}}</td>
+                        <td style="padding:7px"><center>{{i.type}}</td>
                         <td style="padding:7px"><center>{{i.error}}</td>
                     </tr>
                 {% elif i.error == 'Update' %}
@@ -115,6 +137,8 @@
                         <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
                         <td style="padding:7px"><center>{{i.duration}}</td>
                         <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.notes}}</td>
+                        <td style="padding:7px"><center>{{i.type}}</td>
                         <td style="padding:7px"><center>{{i.error}}</td>
                     </tr>
                 {% else %}
@@ -125,12 +149,13 @@
                         <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
                         <td style="padding:7px"><center>{{i.duration}}</td>
                         <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.notes}}</td>
+                        <td style="padding:7px"><center>{{i.type}}</td>
                         <td style="padding:7px"><center>{{i.error}}</td>
                 </tr>
                 {% endif %}
         {% endfor %}
     </table>
 </div>
-
 </body>
 </html>
