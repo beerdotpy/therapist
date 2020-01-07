@@ -36,11 +36,23 @@
 
 <h1><center>Functional Learning Centre Inc</center></h1>
 <div><center>
-    <form action="." method="post" enctype="multipart/form-data">
+    {% if button_type == 'Upload' %}
+    <form action="" method="post" enctype="multipart/form-data">
         Select csv to upload:
         <input type="file" name="csv_file" id="fileToUpload"><br><br>
-        <input type="submit" value="Submit" name="submit">
+        <input name="button" value="{{button_type}}" hidden>
+        <input type="file" name="data" value="{{file}}" hidden>
+        <input type="submit" value="{{button_type}}" name="{{button_type}}">
     </form>
+    {% endif %}
+    {% if button_type == 'Review' %}
+    <form action="" method="post">
+        <input name="button" value="{{button_type}}" hidden>
+        <input name="data" value="{{file}}" hidden>
+        <input type="submit" value="{{button_type}}" name="{{button_type}}">
+    </form>
+    {% endif %}
+
 </div>
 <br>
 <div>
@@ -54,39 +66,69 @@
             <th style="padding:7px">End Time</th>
             <th style="padding:7px">Error Type</th>
         </tr>
-            {% for i in duplicate %}
-        <tr>
-            <td style="padding:7px"><center>{{i.client_name}}</td>
-            <td style="padding:7px"><center>{{i.client_initial}}</td>
-            <td style="padding:7px"><center>{{i.date}}</td>
-            <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
-            <td style="padding:7px"><center>{{i.duration}}</td>
-            <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
-            <td style="padding:7px"><center>{{i.error}}</td>
-        </tr>
-            {% endfor %}
-        {% for i in overlap %}
-        <tr>
-            <td style="padding:7px"><center>{{i.client_name}}</td>
-            <td style="padding:7px"><center>{{i.client_initial}}</td>
-            <td style="padding:7px"><center>{{i.date}}</td>
-            <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
-            <td style="padding:7px"><center>{{i.duration}}</td>
-            <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
-            <td style="padding:7px"><center>{{i.error}}</td>
-        </tr>
-            {% endfor %}
-        {% for i in gap %}
-        <tr>
-            <td style="padding:7px"><center>{{i.client_name}}</td>
-            <td style="padding:7px"><center>{{i.client_initial}}</td>
-            <td style="padding:7px"><center>{{i.date}}</td>
-            <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
-            <td style="padding:7px"><center>{{i.duration}}</td>
-            <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
-            <td style="padding:7px"><center>{{i.error}}</td>
-        </tr>
-            {% endfor %}
+            {% for i in result %}
+                {% if i.error == 'Gap' %}
+                    <tr style="background:yellow">
+                        <td style="padding:7px"><center>{{i.client_name}}</td>
+                        <td style="padding:7px"><center>{{i.client_initial}}</td>
+                        <td style="padding:7px"><center>{{i.date}}</td>
+                        <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.duration}}</td>
+                        <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.error}}</td>
+                    </tr>
+                {% elif i.error == 'Overlap' %}
+                    <tr style="background:green">
+                        <td style="padding:7px"><center>{{i.client_name}}</td>
+                        <td style="padding:7px"><center>{{i.client_initial}}</td>
+                        <td style="padding:7px"><center>{{i.date}}</td>
+                        <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.duration}}</td>
+                        <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.error}}</td>
+                    </tr>
+                {% elif i.error == 'Duplicate' %}
+                    <tr style="background:red">
+                        <td style="padding:7px"><center>{{i.client_name}}</td>
+                        <td style="padding:7px"><center>{{i.client_initial}}</td>
+                        <td style="padding:7px"><center>{{i.date}}</td>
+                        <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.duration}}</td>
+                        <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.error}}</td>
+                    </tr>
+                {% elif i.error == 'Cancellation' %}
+                    <tr style="background:red">
+                        <td style="padding:7px"><center>{{i.client_name}}</td>
+                        <td style="padding:7px"><center>{{i.client_initial}}</td>
+                        <td style="padding:7px"><center>{{i.date}}</td>
+                        <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.duration}}</td>
+                        <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.error}}</td>
+                    </tr>
+                {% elif i.error == 'Update' %}
+                    <tr style="background:green">
+                        <td style="padding:7px"><center>{{i.client_name}}</td>
+                        <td style="padding:7px"><center>{{i.client_initial}}</td>
+                        <td style="padding:7px"><center>{{i.date}}</td>
+                        <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.duration}}</td>
+                        <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.error}}</td>
+                    </tr>
+                {% else %}
+                 <tr>
+                        <td style="padding:7px"><center>{{i.client_name}}</td>
+                        <td style="padding:7px"><center>{{i.client_initial}}</td>
+                        <td style="padding:7px"><center>{{i.date}}</td>
+                        <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.duration}}</td>
+                        <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.error}}</td>
+                </tr>
+                {% endif %}
+        {% endfor %}
     </table>
 </div>
 

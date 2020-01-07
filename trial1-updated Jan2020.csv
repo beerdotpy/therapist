@@ -1,0 +1,687 @@
+Initial,Learner:,Date,Type,Start,Duration,End,Location/Notes
+AB,Abener,>,>,>,>,>,>
+AB,,43840,Individual,0.645833333,1.25,0.697916667,At-Home
+AB,,43847,Individual,0.645833333,1.25,0.697916667,At-Home
+AB,,43854,Individual,0.645833333,1.25,0.697916667,At-Home
+AB,,43861,Individual,0.645833333,1.25,0.697916667,At-Home
+AE,Alexander,>,>,>,>,>,>
+AE,,43832,Individual,0.416666667,1.25,0.46875,Langford Centre
+AE,,43833,Individual,0.427083333,1.75,0.5,Langford Centre
+AE,,43836,SBI,0.416666667,0.75,0.447916667,Langford Centre
+AE,,43836,Individual,0.447916667,1,0.489583333,Langford Centre
+AE,,43837,Individual,0.458333333,1,0.5,Langford Centre
+AE,,43838,Individual,0.479166667,1.5,0.541666667,Langford Centre
+AE,,43840,Individual,0.447916667,1.25,0.5,Langford Centre
+AE,,43840,SBI,0.5,1,0.541666667,Langford Centre
+AE,,43843,SBI,0.416666667,0.75,0.447916667,Langford Centre
+AE,,43843,Individual,0.447916667,1,0.489583333,Langford Centre
+AE,,43844,Individual,0.458333333,1,0.5,Langford Centre
+AE,,43845,Individual,0.447916667,1.75,0.520833333,Langford Centre
+AE,,43847,Individual,0.447916667,1.25,0.5,Langford Centre
+AE,,43847,SBI,0.5,1,0.541666667,Langford Centre
+AE,,43850,SBI,0.40625,1,0.447916667,Langford Centre
+AE,,43850,Individual,0.447916667,1,0.489583333,Langford Centre
+AE,,43851,Individual,0.458333333,1,0.5,Langford Centre
+AE,,43852,Individual,0.447916667,1.75,0.520833333,Langford Centre
+AE,,43854,Individual,0.447916667,1.25,0.5,Langford Centre
+AE,,43854,SBI,0.5,1,0.541666667,Langford Centre
+AE,,43857,SBI,0.40625,1,0.447916667,Langford Centre
+AE,,43857,Individual,0.447916667,1,0.489583333,Langford Centre
+AE,,43858,Individual,0.458333333,1,0.5,Langford Centre
+AE,,43859,Individual,0.447916667,1.75,0.520833333,Langford Centre
+AE,,43860,Individual,0.447916667,1,0.489583333,Langford Centre
+AE,,43860,SBI,0.40625,1,0.447916667,Langford Centre
+AE,,43861,Individual,0.447916667,1.25,0.5,Langford Centre
+AE,,43861,SBI,0.5,1,0.541666667,Langford Centre
+AE,,43837,GRP8,0.416666667,1,0.458333333,Langford Centre
+AE,,43844,GRP8,0.416666667,1,0.458333333,Langford Centre
+AE,,43851,GRP8,0.416666667,1,0.458333333,Langford Centre
+AE,,43858,GRP8,0.416666667,1,0.458333333,Langford Centre
+AR,Asher ,>,>,>,>,>,>
+AR,,43847,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+AR,,43854,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+AR,,43861,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+AU,Austin,>,>,>,>,>,>
+AU,,43832,Individual,0.6875,1.5,0.75,Langford Centre
+AU,,43839,Individual,0.6875,1.5,0.75,Langford Centre
+AU,,43846,Individual,0.6875,1.5,0.75,Langford Centre
+AU,,43853,Individual,0.6875,1.5,0.75,Langford Centre
+AU,,43860,Individual,0.6875,1.5,0.75,Langford Centre
+AY,Ayden,>,>,>,>,>,>
+AY,,43833,GRP2,0.59375,1.5,0.65625,Oak Bay Centre
+AY,,43840,GRP2,0.666666667,1.5,0.729166667,Oak Bay Centre
+AY,,43861,GRP2,0.666666667,1.5,0.729166667,Oak Bay Centre
+BH,Benny,>,>,>,>,>,>
+BH,,43832,SBI,0.53125,1.25,0.583333333,Langford Centre
+BH,,43836,SBI,0.541666667,1,0.583333333,Langford Centre
+BH,,43838,Individual,0.541666667,1.5,0.604166667,Langford Centre
+BH,,43839,SBI,0.541666667,1,0.583333333,Langford Centre
+BH,,43843,SBI,0.541666667,1,0.583333333,Langford Centre
+BH,,43845,Individual,0.552083333,1.25,0.604166667,Langford Centre
+BH,,43846,SBI,0.541666667,1,0.583333333,Langford Centre
+BH,,43850,SBI,0.541666667,1,0.583333333,Langford Centre
+BH,,43852,Individual,0.552083333,1.25,0.604166667,Langford Centre
+BH,,43853,SBI,0.541666667,1,0.583333333,Langford Centre
+BH,,43857,SBI,0.541666667,1,0.583333333,Langford Centre
+BH,,43859,Individual,0.552083333,1.5,0.614583333,Langford Centre
+BH,,43860,SBI,0.541666667,1,0.583333333,Langford Centre
+BY,Abby,>,>,>,>,>,>
+BY,,43833,GRP1,0.520833333,1.5,0.583333333,Oak Bay Centre
+BY,,43839,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+BY,,43840,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+BY,,43846,GRP1,0.65625,2,0.739583333,Oak Bay Centre
+BY,,43847,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+BY,,43853,GRP1,0.645833333,1.5,0.708333333,Oak Bay Centre
+BY,,43854,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+BY,,43860,GRP1,0.645833333,1.5,0.708333333,Oak Bay Centre
+BY,,43861,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+CA,Kcandes,>,>,>,>,>,>
+CA,,43840,Individual,0.697916667,1.25,0.75,At-Home
+CA,,43847,Individual,0.697916667,1.25,0.75,At-Home
+CA,,43854,Individual,0.697916667,1.25,0.75,At-Home
+CA,,43861,Individual,0.697916667,1.25,0.75,At-Home
+CC,Carter H.,>,>,>,>,>,>
+CC,,43832,Individual,0.364583333,1,0.40625,Langford Centre
+CC,,43833,Individual,0.427083333,1,0.46875,Langford Centre
+CC,,43837,Individual,0.708333333,0.75,0.739583333,Langford Centre
+CC,,43838,Individual,0.697916667,0.75,0.729166667,Langford Centre
+CC,,43839,Individual,0.645833333,0.75,0.677083333,Langford Centre
+CC,,43844,Individual,0.708333333,0.75,0.739583333,Langford Centre
+CC,,43845,Individual,0.697916667,0.75,0.729166667,Langford Centre
+CC,,43846,Individual,0.645833333,0.75,0.677083333,Langford Centre
+CC,,43851,Individual,0.708333333,0.75,0.739583333,Langford Centre
+CC,,43852,Individual,0.697916667,1,0.739583333,Langford Centre
+CC,,43853,Individual,0.645833333,0.75,0.677083333,Langford Centre
+CC,,43858,Individual,0.708333333,0.75,0.739583333,Langford Centre
+CC,,43859,Individual,0.6875,1,0.729166667,Langford Centre
+CC,,43860,Individual,0.645833333,0.75,0.677083333,Langford Centre
+CH,Cole,>,>,>,>,>,>
+CH,,43832,SBI,0.416666667,1.25,0.46875,Langford Centre
+CH,,43833,Individual,0.645833333,1,0.6875,Langford Centre
+CH,,43834,Individual,0.364583333,1,0.40625,Oak Bay Centre
+CH,,43836,SLP,0.614583333,1.25,0.666666667,Langford Centre
+CH,,43838,Individual,0.614583333,1,0.65625,Langford Centre
+CH,,43839,SLP,0.677083333,1.25,0.729166667,Langford Centre
+CH,,43840,Individual,0.645833333,1.25,0.697916667,Langford Centre
+CH,,43841,Individual,0.364583333,1,0.40625,Oak Bay Centre
+CH,,43841,SLP,0.40625,1,0.447916667,Oak Bay Centre
+CH,,43843,SLP,0.614583333,1.25,0.666666667,Langford Centre
+CH,,43845,Individual,0.614583333,1,0.65625,Langford Centre
+CH,,43846,SLP,0.677083333,1.25,0.729166667,Langford Centre
+CH,,43847,Individual,0.645833333,1.25,0.697916667,Langford Centre
+CH,,43848,Individual,0.364583333,1,0.40625,Oak Bay Centre
+CH,,43848,SLP,0.40625,1,0.447916667,Oak Bay Centre
+CH,,43850,SLP,0.614583333,1,0.65625,Langford Centre
+CH,,43852,Individual,0.614583333,1,0.65625,Langford Centre
+CH,,43853,SLP,0.677083333,1.25,0.729166667,Langford Centre
+CH,,43854,Individual,0.645833333,1.25,0.697916667,Langford Centre
+CH,,43855,Individual,0.364583333,1,0.40625,Oak Bay Centre
+CH,,43855,SLP,0.40625,1,0.447916667,Oak Bay Centre
+CH,,43857,SLP,0.614583333,1,0.65625,Langford Centre
+CH,,43859,Individual,0.614583333,1,0.65625,Langford Centre
+CH,,43860,SLP,0.677083333,1.25,0.729166667,Langford Centre
+CH,,43861,Individual,0.645833333,1.25,0.697916667,Langford Centre
+CW,Chase,>,>,>,>,>,>
+CW,,43833,Individual,0.677083333,1.5,0.739583333,Langford Centre
+CW,,43840,Individual,0.677083333,1.5,0.739583333,Langford Centre
+CW,,43847,Individual,0.677083333,1.5,0.739583333,Langford Centre
+CW,,43854,Individual,0.677083333,1.5,0.739583333,Langford Centre
+CW,,43861,Individual,0.677083333,1.5,0.739583333,Langford Centre
+CW,,43836,GRP6,0.708333333,1,0.75,Langford Centre
+CW,,43843,GRP6,0.708333333,1,0.75,Langford Centre
+CW,,43850,GRP6,0.708333333,1,0.75,Langford Centre
+CW,,43857,GRP6,0.708333333,1,0.75,Langford Centre
+CX,Coltan,>,>,>,>,>,>
+CX,,43836,Individual,0.385416667,1.25,0.4375,Langford Centre
+CX,,43837,SBI,0.364583333,1.25,0.416666667,Langford Centre
+CX,,43839,SBI,0.364583333,2,0.447916667,Langford Centre
+CX,,43840,Individual,0.416666667,1.5,0.479166667,Langford Centre
+CX,,43843,Individual,0.385416667,1.25,0.4375,Langford Centre
+CX,,43844,SBI,0.364583333,1.25,0.416666667,Langford Centre
+CX,,43845,Individual,0.375,1.5,0.4375,Langford Centre
+CX,,43846,SBI,0.364583333,2,0.447916667,Langford Centre
+CX,,43847,Individual,0.416666667,1.5,0.479166667,Langford Centre
+CX,,43851,SBI,0.364583333,1.25,0.416666667,Langford Centre
+CX,,43852,Individual,0.375,1.5,0.4375,Langford Centre
+CX,,43853,SBI,0.364583333,2,0.447916667,Langford Centre
+CX,,43854,Individual,0.416666667,1.5,0.479166667,Langford Centre
+CX,,43858,SBI,0.364583333,1.25,0.416666667,Langford Centre
+CX,,43859,Individual,0.375,1.5,0.4375,Langford Centre
+CX,,43860,Individual,0.395833333,1,0.4375,Langford Centre
+CX,,43860,SBI,0.354166667,1,0.395833333,Langford Centre
+CX,,43861,Individual,0.416666667,1.5,0.479166667,Langford Centre
+CX,,43837,GRP8,0.416666667,1,0.458333333,Langford Centre
+CX,,43844,GRP8,0.416666667,1,0.458333333,Langford Centre
+CX,,43851,GRP8,0.416666667,1,0.458333333,Langford Centre
+CX,,43858,GRP8,0.416666667,1,0.458333333,Langford Centre
+DR,Daniel,>,>,>,>,>,>
+DR,,43837,SLP,0.677083333,1,0.71875,Oak Bay Centre
+DR,,43851,SLP,0.677083333,1,0.71875,Oak Bay Centre
+EM,E Majachani,>,>,>,>,>,>
+EM,,43837,SLP,0.625,1,0.666666667,Oak Bay Centre
+EM,,43838,Individual,0.65625,0.75,0.6875,Oak Bay Centre
+EM,,43841,SLP,0.510416667,0.75,0.541666667,Oak Bay Centre
+EM,,43844,SLP,0.677083333,1,0.71875,Oak Bay Centre
+EM,,43845,Individual,0.65625,0.75,0.6875,Oak Bay Centre
+EM,,43848,SLP,0.510416667,0.75,0.541666667,Oak Bay Centre
+EM,,43851,SLP,0.625,1,0.666666667,Oak Bay Centre
+EM,,43852,Individual,0.65625,0.75,0.6875,Oak Bay Centre
+EM,,43855,SLP,0.510416667,0.75,0.541666667,Oak Bay Centre
+EM,,43858,SLP,0.677083333,1,0.71875,Oak Bay Centre
+EM,,43859,Individual,0.65625,0.75,0.6875,Oak Bay Centre
+EV,Emma,>,>,>,>,>,>
+EV,,43837,GRP1,0.666666667,1.25,0.71875,Oak Bay Centre
+EV,,43839,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+EV,,43840,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+EV,,43846,GRP1,0.65625,2,0.739583333,Oak Bay Centre
+EV,,43847,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+EV,,43851,GRP1,0.666666667,1.25,0.71875,Oak Bay Centre
+EV,,43853,GRP1,0.645833333,1.5,0.708333333,Oak Bay Centre
+EV,,43854,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+EV,,43860,GRP1,0.645833333,1.5,0.708333333,Oak Bay Centre
+EV,,43861,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+EZ,Elizabeth,>,>,>,>,>,>
+EZ,,43832,Individual,0.354166667,1.25,0.40625,Langford Centre
+EZ,,43833,Individual,0.375,1,0.416666667,Langford Centre
+EZ,,43836,SBI,0.34375,1.5,0.40625,Langford Centre
+EZ,,43837,SBI,0.541666667,1,0.583333333,Langford Centre
+EZ,,43838,Individual,0.552083333,1,0.59375,Langford Centre
+EZ,,43839,SBI,0.458333333,1.75,0.53125,At (pre)School
+EZ,,43840,Individual,0.395833333,1,0.4375,Session Observation
+EZ,,43840,Individual,0.395833333,1,0.4375,Langford Centre
+EZ,,43840,SBI,0.354166667,1,0.395833333,Langford Centre
+EZ,,43843,SBI,0.34375,1.5,0.40625,Langford Centre
+EZ,,43844,SBI,0.541666667,1,0.583333333,Langford Centre
+EZ,,43845,Individual,0.552083333,1,0.59375,Langford Centre
+EZ,,43846,SBI,0.458333333,1.75,0.53125,At (pre)School
+EZ,,43847,Individual,0.395833333,1,0.4375,Langford Centre
+EZ,,43847,SBI,0.354166667,1,0.395833333,Langford Centre
+EZ,,43850,SBI,0.34375,1.25,0.395833333,Langford Centre
+EZ,,43850,Individual,0.395833333,1,0.4375,Langford Centre
+EZ,,43851,SBI,0.541666667,1,0.583333333,Langford Centre
+EZ,,43852,Individual,0.552083333,1,0.59375,Langford Centre
+EZ,,43853,SBI,0.458333333,1.75,0.53125,At (pre)School
+EZ,,43854,Individual,0.395833333,1,0.4375,Langford Centre
+EZ,,43854,SBI,0.354166667,1,0.395833333,Langford Centre
+EZ,,43857,SBI,0.34375,1.25,0.395833333,Langford Centre
+EZ,,43857,Individual,0.395833333,1,0.4375,Langford Centre
+EZ,,43858,SBI,0.541666667,1,0.583333333,Langford Centre
+EZ,,43859,Individual,0.541666667,1.25,0.59375,Langford Centre
+EZ,,43860,SBI,0.458333333,1.75,0.53125,At (pre)School
+EZ,,43861,Individual,0.395833333,1,0.4375,Langford Centre
+EZ,,43861,SBI,0.333333333,1.5,0.395833333,Langford Centre
+GH,Graham,>,>,>,>,>,>
+GH,,43832,Individual,0.416666667,1.25,0.46875,Langford Centre
+GH,,43833,Individual,0.635416667,1.25,0.6875,Langford Centre
+GH,,43836,Individual,0.614583333,1,0.65625,Langford Centre
+GH,,43838,Individual,0.614583333,1,0.65625,Langford Centre
+GH,,43840,Individual,0.645833333,1,0.6875,Langford Centre
+GH,,43843,Individual,0.614583333,1,0.65625,Langford Centre
+GH,,43845,Individual,0.614583333,1,0.65625,Langford Centre
+GH,,43847,Individual,0.645833333,1,0.6875,Langford Centre
+GH,,43850,Individual,0.614583333,1,0.65625,Langford Centre
+GH,,43852,Individual,0.614583333,1,0.65625,Langford Centre
+GH,,43854,Individual,0.645833333,1,0.6875,Langford Centre
+GH,,43857,Individual,0.614583333,1,0.65625,Langford Centre
+GH,,43859,Individual,0.625,1,0.666666667,Langford Centre
+GH,,43861,Individual,0.645833333,1,0.6875,Langford Centre
+GK,George,>,>,>,>,>,>
+GK,,43834,Individual,0.416666667,1,0.458333333,Oak Bay Centre
+GK,,43841,Individual,0.416666667,1,0.458333333,Oak Bay Centre
+GK,,43841,SLP,0.458333333,1,0.5,Oak Bay Centre
+GK,,43848,Individual,0.416666667,1,0.458333333,Oak Bay Centre
+GK,,43848,SLP,0.458333333,1,0.5,Oak Bay Centre
+GK,,43855,Individual,0.416666667,1,0.458333333,Oak Bay Centre
+GK,,43855,SLP,0.458333333,1,0.5,Oak Bay Centre
+HD,Hiroto,>,>,>,>,>,>
+HD,,43840,Individual,0.697916667,1.25,0.75,Langford Centre
+HD,,43847,Individual,0.697916667,1.25,0.75,Langford Centre
+HD,,43854,Individual,0.697916667,1.25,0.75,Langford Centre
+HD,,43861,Individual,0.697916667,1.25,0.75,Langford Centre
+HI,Hitam,>,>,>,>,>,>
+IN,Indigo,>,>,>,>,>,>
+IN,,43837,Individual,0.604166667,1,0.645833333,Langford Centre
+IN,,43838,B.C.,0.604166667,1,0.645833333,Langford Centre
+IN,,43844,Individual,0.604166667,1,0.645833333,Langford Centre
+IN,,43845,B.C.,0.604166667,1,0.645833333,Langford Centre
+IN,,43851,Individual,0.604166667,1,0.645833333,Langford Centre
+IN,,43852,B.C.,0.604166667,1,0.645833333,Langford Centre
+IN,,43858,Individual,0.604166667,1,0.645833333,Langford Centre
+IN,,43859,B.C.,0.604166667,1,0.645833333,Langford Centre
+IN,,43836,GRP8,0.625,1.75,0.697916667,Langford Centre
+IN,,43836,GRP0,0.604166667,0.5,0.625,Langford Centre
+IN,,43838,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+IN,,43843,GRP8,0.625,2,0.708333333,Langford Centre
+IN,,43843,GRP0,0.604166667,0.5,0.625,Langford Centre
+IN,,43845,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+IN,,43850,GRP8,0.625,1.75,0.697916667,Langford Centre
+IN,,43850,GRP0,0.604166667,0.5,0.625,Langford Centre
+IN,,43852,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+IN,,43857,GRP8,0.625,1.75,0.697916667,Langford Centre
+IN,,43857,GRP0,0.604166667,0.5,0.625,Langford Centre
+IN,,43859,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+IZ,Izailya,>,>,>,>,>,>
+IZ,,43836,Individual,0.625,1.25,0.677083333,Langford Centre
+IZ,,43836,SLP,0.677083333,0.75,0.708333333,Langford Centre
+IZ,,43837,Individual,0.604166667,1,0.645833333,Langford Centre
+IZ,,43838,Individual,0.604166667,2.25,0.697916667,Langford Centre
+IZ,,43843,Individual,0.625,1.25,0.677083333,Langford Centre
+IZ,,43843,SLP,0.677083333,0.75,0.708333333,Langford Centre
+IZ,,43844,Individual,0.604166667,1,0.645833333,Langford Centre
+IZ,,43845,Individual,0.604166667,2.25,0.697916667,Langford Centre
+IZ,,43850,Individual,0.625,1.25,0.677083333,Langford Centre
+IZ,,43850,SLP,0.677083333,0.75,0.708333333,Langford Centre
+IZ,,43851,Individual,0.604166667,1,0.645833333,Langford Centre
+IZ,,43852,Individual,0.604166667,2,0.6875,Langford Centre
+IZ,,43857,Individual,0.625,1.25,0.677083333,Langford Centre
+IZ,,43857,SLP,0.677083333,0.75,0.708333333,Langford Centre
+IZ,,43858,Individual,0.604166667,1,0.645833333,Langford Centre
+IZ,,43859,Individual,0.604166667,2.25,0.697916667,Langford Centre
+IZ,,43836,GRP0,0.604166667,0.5,0.625,Langford Centre
+IZ,,43843,GRP0,0.604166667,0.5,0.625,Langford Centre
+IZ,,43850,GRP0,0.604166667,0.5,0.625,Langford Centre
+IZ,,43857,GRP0,0.604166667,0.5,0.625,Langford Centre
+JA,Jakobe,>,>,>,>,>,>
+JA,,43833,GRP1,0.520833333,1.5,0.583333333,Oak Bay Centre
+JA,,43840,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+JA,,43847,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+JA,,43854,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+JA,,43861,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+JH,Jack H,>,>,>,>,>,>
+JH,,43838,SLP,0.697916667,0.75,0.729166667,Langford Centre
+JH,,43845,SLP,0.697916667,0.75,0.729166667,Langford Centre
+JH,,43852,SLP,0.697916667,0.75,0.729166667,Langford Centre
+JH,,43859,SLP,0.697916667,0.75,0.729166667,Langford Centre
+JH,,43836,GRP9,0.645833333,1.25,0.697916667,Langford Centre
+JH,,43838,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+JH,,43843,GRP9,0.645833333,1.5,0.708333333,Langford Centre
+JH,,43845,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+JH,,43850,GRP9,0.645833333,1.25,0.697916667,Langford Centre
+JH,,43852,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+JH,,43857,GRP9,0.645833333,1.25,0.697916667,Langford Centre
+JH,,43859,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+JJ,JJ Herman,>,>,>,>,>,>
+JJ,,43832,Individual,0.6875,1,0.729166667,Oak Bay Centre
+JJ,,43836,Individual,0.65625,1,0.697916667,Oak Bay Centre
+JJ,,43839,Individual,0.6875,1,0.729166667,Oak Bay Centre
+JJ,,43843,Individual,0.65625,1,0.697916667,Oak Bay Centre
+JJ,,43846,Individual,0.6875,1,0.729166667,Oak Bay Centre
+JJ,,43850,Individual,0.65625,1,0.697916667,Oak Bay Centre
+JJ,,43853,Individual,0.6875,1,0.729166667,Oak Bay Centre
+JJ,,43857,Individual,0.65625,1,0.697916667,Oak Bay Centre
+JJ,,43860,Individual,0.6875,1,0.729166667,Oak Bay Centre
+JL,Justin,>,>,>,>,>,>
+JL,,43833,GRP6,0.697916667,1.25,0.75,Langford Centre
+JL,,43838,GRP7,0.708333333,1,0.75,Langford Centre
+JL,,43845,GRP7,0.708333333,1,0.75,Langford Centre
+JL,,43852,GRP7,0.708333333,1,0.75,Langford Centre
+JL,,43859,GRP7,0.71875,1,0.760416667,Langford Centre
+JO,Johnny,>,>,>,>,>,>
+JO,,43837,Individual,0.572916667,1.75,0.645833333,At (pre)School
+JO,,43840,Individual,0.572916667,1.5,0.635416667,At (pre)School
+JO,,43844,Individual,0.572916667,1.75,0.645833333,At (pre)School
+JO,,43847,Individual,0.572916667,1.5,0.635416667,At (pre)School
+JO,,43848,SLP,0.604166667,1,0.645833333,Oak Bay Centre
+JO,,43851,Individual,0.572916667,1.75,0.645833333,At (pre)School
+JO,,43854,Individual,0.572916667,1.5,0.635416667,At (pre)School
+JO,,43855,SLP,0.604166667,1,0.645833333,Oak Bay Centre
+JO,,43858,Individual,0.572916667,1.75,0.645833333,At (pre)School
+JO,,43861,Individual,0.572916667,1.5,0.635416667,At (pre)School
+JP,Jarad,>,>,>,>,>,>
+JP,,43834,Individual,0.520833333,1,0.5625,Oak Bay Centre
+JP,,43841,Individual,0.520833333,1,0.5625,Oak Bay Centre
+JP,,43848,Individual,0.520833333,1,0.5625,Oak Bay Centre
+JP,,43855,Individual,0.520833333,1,0.5625,Oak Bay Centre
+JS,Jack S,>,>,>,>,>,>
+JX,Jax,>,>,>,>,>,>
+JX,,43836,Individual,0.697916667,0.75,0.729166667,Langford Centre
+JX,,43837,Individual,0.65625,2,0.739583333,Langford Centre
+JX,,43838,Individual,0.697916667,1,0.739583333,Langford Centre
+JX,,43838,SLP,0.614583333,0.75,0.645833333,Langford Centre
+JX,,43843,Individual,0.708333333,0.75,0.739583333,Langford Centre
+JX,,43844,Individual,0.65625,2,0.739583333,Langford Centre
+JX,,43845,Individual,0.697916667,1,0.739583333,Langford Centre
+JX,,43845,SLP,0.614583333,0.75,0.645833333,Langford Centre
+JX,,43850,Individual,0.697916667,1,0.739583333,Langford Centre
+JX,,43851,Individual,0.65625,2,0.739583333,Langford Centre
+JX,,43852,Individual,0.697916667,1,0.739583333,Langford Centre
+JX,,43852,SLP,0.614583333,0.75,0.645833333,Langford Centre
+JX,,43857,Individual,0.697916667,1,0.739583333,Langford Centre
+JX,,43858,Individual,0.65625,2,0.739583333,Langford Centre
+JX,,43859,Individual,0.697916667,1,0.739583333,Langford Centre
+JX,,43859,SLP,0.614583333,0.75,0.645833333,Langford Centre
+JX,,43836,GRP8,0.625,1.75,0.697916667,Langford Centre
+JX,,43838,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+JX,,43843,GRP8,0.625,2,0.708333333,Langford Centre
+JX,,43845,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+JX,,43850,GRP8,0.625,1.75,0.697916667,Langford Centre
+JX,,43852,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+JX,,43857,GRP8,0.625,1.75,0.697916667,Langford Centre
+JX,,43859,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+KC,Kavish,>,>,>,>,>,>
+KC,,43833,B.C.,0.479166667,0.75,0.510416667,Oak Bay Centre
+KC,,43834,Individual,0.46875,0.75,0.5,Oak Bay Centre
+KC,,43838,Individual,0.541666667,0.75,0.572916667,Oak Bay Centre
+KC,,43840,Individual,0.541666667,0.75,0.572916667,Oak Bay Centre
+KC,,43841,Individual,0.46875,0.75,0.5,Oak Bay Centre
+KC,,43845,Individual,0.541666667,0.75,0.572916667,Oak Bay Centre
+KC,,43847,Individual,0.541666667,1,0.583333333,Oak Bay Centre
+KC,,43848,Individual,0.46875,0.75,0.5,Oak Bay Centre
+KC,,43852,Individual,0.541666667,0.75,0.572916667,Oak Bay Centre
+KC,,43854,Individual,0.541666667,1,0.583333333,Oak Bay Centre
+KC,,43855,Individual,0.46875,0.75,0.5,Oak Bay Centre
+KC,,43859,Individual,0.541666667,0.75,0.572916667,Oak Bay Centre
+KC,,43861,Individual,0.541666667,1,0.583333333,Oak Bay Centre
+KK,Admin-Sub,>,>,>,>,>,>
+KK,,43840,SBI,0.395833333,1,0.4375,Session Observation
+LN,Logan,>,>,>,>,>,>
+LN,,43837,Individual,0.4375,2,0.520833333,Langford Centre
+LN,,43838,Individual,0.4375,2,0.520833333,Langford Centre
+LN,,43839,Individual,0.427083333,2,0.510416667,Langford Centre
+LN,,43844,Individual,0.4375,2,0.520833333,Langford Centre
+LN,,43845,Individual,0.46875,1.75,0.541666667,Langford Centre
+LN,,43846,Individual,0.427083333,2,0.510416667,Langford Centre
+LN,,43851,Individual,0.4375,2,0.520833333,Langford Centre
+LN,,43852,Individual,0.46875,1.75,0.541666667,Langford Centre
+LN,,43853,Individual,0.427083333,2,0.510416667,Langford Centre
+LN,,43858,Individual,0.4375,2,0.520833333,Langford Centre
+LN,,43859,Individual,0.46875,1.75,0.541666667,Langford Centre
+LN,,43860,Individual,0.427083333,2,0.510416667,Langford Centre
+LU,Annesha,>,>,>,>,>,>
+LU,,43832,Individual,0.541666667,2,0.625,Langford Centre
+LU,,43833,Individual,0.552083333,2,0.635416667,Langford Centre
+LU,,43833,Individual,0.520833333,0.75,0.552083333,Langford Centre
+LU,,43836,Individual,0.53125,2,0.614583333,Langford Centre
+LU,,43837,Individual,0.520833333,1.5,0.583333333,Langford Centre
+LU,,43837,Individual,0.583333333,1.25,0.635416667,Langford Centre
+LU,,43838,B.C.,0.53125,1,0.572916667,Session Observation
+LU,,43838,Individual,0.53125,2,0.614583333,Langford Centre
+LU,,43839,Individual,0.520833333,1.25,0.572916667,Langford Centre
+LU,,43839,Individual,0.572916667,1.25,0.625,Langford Centre
+LU,,43839,SLP,0.625,1,0.666666667,Langford Centre
+LU,,43840,Individual,0.583333333,1.25,0.635416667,Langford Centre
+LU,,43840,Individual,0.520833333,0.75,0.552083333,Langford Centre
+LU,,43840,SBI,0.552083333,0.75,0.583333333,Langford Centre
+LU,,43843,Individual,0.53125,2,0.614583333,Langford Centre
+LU,,43844,Individual,0.520833333,1.5,0.583333333,Langford Centre
+LU,,43844,Individual,0.583333333,1.25,0.635416667,Langford Centre
+LU,,43845,Individual,0.520833333,1.75,0.59375,Langford Centre
+LU,,43845,Individual,0.59375,0.75,0.625,Langford Centre
+LU,,43846,Individual,0.520833333,1.25,0.572916667,Langford Centre
+LU,,43846,Individual,0.572916667,1.25,0.625,Langford Centre
+LU,,43846,SLP,0.625,1,0.666666667,Langford Centre
+LU,,43847,Individual,0.583333333,1.25,0.635416667,Langford Centre
+LU,,43847,Individual,0.520833333,0.75,0.552083333,Langford Centre
+LU,,43847,SBI,0.552083333,0.75,0.583333333,Langford Centre
+LU,,43850,Individual,0.53125,2,0.614583333,Langford Centre
+LU,,43851,Individual,0.520833333,1.5,0.583333333,Langford Centre
+LU,,43851,Individual,0.583333333,1.25,0.635416667,Langford Centre
+LU,,43852,B.C.,0.572916667,0.5,0.59375,Session Observation
+LU,,43852,Individual,0.520833333,1.75,0.59375,Langford Centre
+LU,,43852,Individual,0.59375,0.75,0.625,Langford Centre
+LU,,43853,Individual,0.520833333,1.25,0.572916667,Langford Centre
+LU,,43853,Individual,0.572916667,1.25,0.625,Langford Centre
+LU,,43853,SLP,0.625,1,0.666666667,Langford Centre
+LU,,43854,Individual,0.583333333,1.25,0.635416667,Langford Centre
+LU,,43854,Individual,0.520833333,0.75,0.552083333,Langford Centre
+LU,,43854,SBI,0.552083333,0.75,0.583333333,Langford Centre
+LU,,43857,Individual,0.53125,2,0.614583333,Langford Centre
+LU,,43858,Individual,0.520833333,1.5,0.583333333,Langford Centre
+LU,,43858,Individual,0.583333333,1.25,0.635416667,Langford Centre
+LU,,43859,Individual,0.541666667,1.25,0.59375,Langford Centre
+LU,,43859,Individual,0.59375,0.75,0.625,Langford Centre
+LU,,43860,Individual,0.520833333,1.25,0.572916667,Langford Centre
+LU,,43860,Individual,0.572916667,1.25,0.625,Langford Centre
+LU,,43860,SLP,0.625,1,0.666666667,Langford Centre
+LU,,43861,Individual,0.583333333,1.25,0.635416667,Langford Centre
+LU,,43861,Individual,0.520833333,0.75,0.552083333,Langford Centre
+LU,,43861,SBI,0.552083333,0.75,0.583333333,Langford Centre
+MD,Madison,>,>,>,>,>,>
+MD,,43832,Individual,0.541666667,2,0.625,Oak Bay Centre
+MD,,43834,Individual,0.572916667,2,0.65625,Oak Bay Centre
+MD,,43841,Individual,0.572916667,2,0.65625,Oak Bay Centre
+MD,,43848,Individual,0.572916667,2,0.65625,Oak Bay Centre
+MD,,43833,GRP1,0.520833333,1.5,0.583333333,Oak Bay Centre
+MD,,43837,GRP1,0.666666667,1.25,0.71875,Oak Bay Centre
+MD,,43839,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+MD,,43840,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+MD,,43846,GRP1,0.65625,2,0.739583333,Oak Bay Centre
+MD,,43847,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+MD,,43860,GRP1,0.645833333,1.5,0.708333333,Oak Bay Centre
+MD,,43861,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+MJ,Maria,>,>,>,>,>,>
+MJ,,43833,Individual,0.479166667,1,0.520833333,Langford Centre
+MJ,,43837,Individual,0.65625,1,0.697916667,Langford Centre
+MJ,,43844,Individual,0.65625,1,0.697916667,Langford Centre
+MJ,,43845,SLP,0.65625,0.75,0.6875,Langford Centre
+MJ,,43851,Individual,0.65625,1,0.697916667,Langford Centre
+MJ,,43858,Individual,0.65625,1,0.697916667,Langford Centre
+MJ,,43859,SLP,0.65625,0.75,0.6875,Langford Centre
+MT,Training/Meeting,>,>,>,>,>,>
+MT,,43836,B.C.,0.46875,0.75,0.5,Langford Centre
+MT,,43850,B.C.,0.729166667,2,0.8125,Langford Centre
+MT,,43852,B.C.,0.729166667,2,0.8125,Langford Centre
+MT,,43857,B.C.,0.729166667,2,0.8125,Langford Centre
+MT,,43859,B.C.,0.729166667,2,0.8125,Langford Centre
+MX,Max,>,>,>,>,>,>
+MX,,43836,Individual,0.375,2,0.458333333,Langford Centre
+MX,,43836,SBI,0.458333333,1,0.5,Langford Centre
+MX,,43836,Individual,0.5,1.5,0.5625,Langford Centre
+MX,,43837,Individual,0.53125,1.5,0.59375,Langford Centre
+MX,,43837,SBI,0.458333333,1.75,0.53125,Langford Centre
+MX,,43837,Individual,0.375,1,0.416666667,Langford Centre
+MX,,43838,Individual,0.520833333,1.75,0.59375,Langford Centre
+MX,,43838,Individual,0.427083333,1,0.46875,Langford Centre
+MX,,43838,Individual,0.364583333,1.5,0.427083333,Langford Centre
+MX,,43838,Individual,0.46875,1.25,0.520833333,Langford Centre
+MX,,43843,Individual,0.375,2,0.458333333,Langford Centre
+MX,,43843,SBI,0.458333333,1,0.5,Langford Centre
+MX,,43843,Individual,0.5,1.5,0.5625,Langford Centre
+MX,,43844,Individual,0.53125,1.5,0.59375,Langford Centre
+MX,,43844,SBI,0.458333333,1.75,0.53125,Langford Centre
+MX,,43844,Individual,0.375,1,0.416666667,Langford Centre
+MX,,43845,B.C.,0.510416667,1,0.552083333,Langford Centre
+MX,,43845,Individual,0.447916667,1.5,0.510416667,Langford Centre
+MX,,43845,Individual,0.375,1.75,0.447916667,Langford Centre
+MX,,43850,Individual,0.375,2,0.458333333,Langford Centre
+MX,,43850,SBI,0.458333333,1,0.5,Langford Centre
+MX,,43850,Individual,0.5,1.5,0.5625,Langford Centre
+MX,,43851,Individual,0.53125,1.5,0.59375,Langford Centre
+MX,,43851,SBI,0.458333333,1.75,0.53125,Langford Centre
+MX,,43851,Individual,0.375,1,0.416666667,Langford Centre
+MX,,43852,B.C.,0.510416667,1.25,0.5625,Langford Centre
+MX,,43852,Individual,0.447916667,1.5,0.510416667,Langford Centre
+MX,,43852,Individual,0.375,1.75,0.447916667,Langford Centre
+MX,,43857,Individual,0.375,2,0.458333333,Langford Centre
+MX,,43857,SBI,0.458333333,1,0.5,Langford Centre
+MX,,43857,Individual,0.5,1.5,0.5625,Langford Centre
+MX,,43858,Individual,0.53125,1.5,0.59375,Langford Centre
+MX,,43858,SBI,0.458333333,1.75,0.53125,Langford Centre
+MX,,43858,Individual,0.375,1,0.416666667,Langford Centre
+MX,,43859,B.C.,0.53125,1,0.572916667,Langford Centre
+MX,,43859,Individual,0.447916667,2,0.53125,Langford Centre
+MX,,43859,Individual,0.375,1.75,0.447916667,Langford Centre
+MX,,43837,GRP8,0.416666667,1,0.458333333,Langford Centre
+MX,,43844,GRP8,0.416666667,1,0.458333333,Langford Centre
+MX,,43851,GRP8,0.416666667,1,0.458333333,Langford Centre
+MX,,43858,GRP8,0.416666667,1,0.458333333,Langford Centre
+NR,Nathan,>,>,>,>,>,>
+NR,,43832,SBI,0.479166667,1,0.520833333,Langford Centre
+NR,,43833,Individual,0.5625,1.25,0.614583333,Langford Centre
+NR,,43836,Individual,0.572916667,0.75,0.604166667,Langford Centre
+NR,,43837,Individual,0.541666667,1,0.583333333,Langford Centre
+NR,,43840,Individual,0.5625,1.25,0.614583333,Langford Centre
+NR,,43843,Individual,0.572916667,0.75,0.604166667,Langford Centre
+NR,,43844,Individual,0.541666667,1,0.583333333,Langford Centre
+NR,,43847,Individual,0.5625,1.25,0.614583333,Langford Centre
+NR,,43850,Individual,0.572916667,0.75,0.604166667,Langford Centre
+NR,,43851,Individual,0.541666667,1,0.583333333,Langford Centre
+NR,,43854,Individual,0.5625,1.25,0.614583333,Langford Centre
+NR,,43857,Individual,0.572916667,0.75,0.604166667,Langford Centre
+NR,,43858,Individual,0.541666667,1,0.583333333,Langford Centre
+NR,,43861,Individual,0.5625,1.25,0.614583333,Langford Centre
+NS,Nasr,>,>,>,>,>,>
+NS,,43836,Individual,0.708333333,1,0.75,Oak Bay Centre
+NS,,43838,Individual,0.697916667,0.75,0.729166667,Oak Bay Centre
+NS,,43843,Individual,0.708333333,1,0.75,Oak Bay Centre
+NS,,43845,Individual,0.697916667,0.75,0.729166667,Oak Bay Centre
+NS,,43850,Individual,0.708333333,1,0.75,Oak Bay Centre
+NS,,43852,Individual,0.697916667,0.75,0.729166667,Oak Bay Centre
+NS,,43857,Individual,0.708333333,1,0.75,Oak Bay Centre
+NS,,43859,Individual,0.697916667,0.75,0.729166667,Oak Bay Centre
+OS,Oliver,>,>,>,>,>,>
+OS,,43832,Individual,0.635416667,1,0.677083333,Langford Centre
+OS,,43833,Individual,0.375,1,0.416666667,Langford Centre
+OS,,43836,Individual,0.666666667,0.75,0.697916667,Langford Centre
+OS,,43838,Individual,0.666666667,0.75,0.697916667,Langford Centre
+OS,,43840,Individual,0.59375,1,0.635416667,Langford Centre
+OS,,43843,Individual,0.666666667,0.75,0.697916667,Langford Centre
+OS,,43845,Individual,0.666666667,0.75,0.697916667,Langford Centre
+OS,,43847,Individual,0.59375,1,0.635416667,Langford Centre
+OS,,43850,Individual,0.666666667,0.75,0.697916667,Langford Centre
+OS,,43852,Individual,0.666666667,0.75,0.697916667,Langford Centre
+OS,,43854,Individual,0.59375,1,0.635416667,Langford Centre
+OS,,43857,Individual,0.666666667,0.75,0.697916667,Langford Centre
+OS,,43859,Individual,0.677083333,0.75,0.708333333,Langford Centre
+OS,,43861,Individual,0.59375,1,0.635416667,Langford Centre
+QR,Quinn,>,>,>,>,>,>
+QR,,43833,Individual,0.447916667,2,0.53125,Langford Centre
+QR,,43833,Individual,0.53125,2,0.614583333,Langford Centre
+QR,,43836,B.C.,0.541666667,1,0.583333333,Langford Centre
+QR,,43836,Individual,0.46875,1,0.510416667,Langford Centre
+QR,,43836,SBI,0.510416667,0.75,0.541666667,Langford Centre
+QR,,43840,SBI,0.447916667,1,0.489583333,Langford Centre
+QR,,43840,Individual,0.489583333,2,0.572916667,Langford Centre
+QR,,43843,B.C.,0.541666667,1,0.583333333,Langford Centre
+QR,,43843,Individual,0.46875,1,0.510416667,Langford Centre
+QR,,43843,SBI,0.510416667,0.75,0.541666667,Langford Centre
+QR,,43845,Individual,0.489583333,2,0.572916667,Langford Centre
+QR,,43847,SBI,0.40625,2,0.489583333,Langford Centre
+QR,,43847,Individual,0.489583333,2,0.572916667,Langford Centre
+QR,,43850,B.C.,0.541666667,1,0.583333333,Langford Centre
+QR,,43850,Individual,0.46875,1,0.510416667,Langford Centre
+QR,,43850,SBI,0.510416667,0.75,0.541666667,Langford Centre
+QR,,43852,Individual,0.489583333,2,0.572916667,Langford Centre
+QR,,43854,SBI,0.40625,2,0.489583333,Langford Centre
+QR,,43854,Individual,0.489583333,2,0.572916667,Langford Centre
+QR,,43857,B.C.,0.541666667,1,0.583333333,Langford Centre
+QR,,43857,Individual,0.46875,1,0.510416667,Langford Centre
+QR,,43857,SBI,0.510416667,0.75,0.541666667,Langford Centre
+QR,,43859,Individual,0.479166667,2.25,0.572916667,Langford Centre
+QR,,43861,SBI,0.40625,2,0.489583333,Langford Centre
+QR,,43861,Individual,0.489583333,2,0.572916667,Langford Centre
+RN,Ariana,>,>,>,>,>,>
+RN,,43832,Individual,0.635416667,1,0.677083333,Oak Bay Centre
+RN,,43839,Individual,0.614583333,1.5,0.677083333,Oak Bay Centre
+RN,,43841,SLP,0.552083333,1,0.59375,Oak Bay Centre
+RN,,43844,SLP,0.625,1,0.666666667,Oak Bay Centre
+RN,,43846,Individual,0.614583333,1.5,0.677083333,Oak Bay Centre
+RN,,43848,SLP,0.552083333,1,0.59375,Oak Bay Centre
+RN,,43853,Individual,0.614583333,1.5,0.677083333,Oak Bay Centre
+RN,,43855,SLP,0.552083333,1,0.59375,Oak Bay Centre
+RN,,43858,SLP,0.625,1,0.666666667,Oak Bay Centre
+RN,,43860,Individual,0.614583333,1.5,0.677083333,Oak Bay Centre
+RS ,RS,>,>,>,>,>,>
+SR,Shaheer,>,>,>,>,>,>
+SR,,43833,Individual,0.697916667,1.25,0.75,Langford Centre
+SR,,43837,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43838,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43840,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43844,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43845,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43847,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43851,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43852,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43854,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43858,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43859,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43861,Individual,0.708333333,1,0.75,Langford Centre
+SR,,43836,GRP6,0.708333333,1,0.75,Langford Centre
+SR,,43843,GRP6,0.708333333,1,0.75,Langford Centre
+SR,,43850,GRP6,0.708333333,1,0.75,Langford Centre
+SR,,43857,GRP6,0.708333333,1,0.75,Langford Centre
+SS,Saad,>,>,>,>,>,>
+ST,Samuel,>,>,>,>,>,>
+ST,,43837,Individual,0.65625,1.5,0.71875,Oak Bay Centre
+ST,,43844,Individual,0.65625,1.5,0.71875,Oak Bay Centre
+ST,,43847,Individual,0.666666667,1.5,0.729166667,Oak Bay Centre
+ST,,43851,Individual,0.65625,1.5,0.71875,Oak Bay Centre
+ST,,43858,Individual,0.65625,1.5,0.71875,Oak Bay Centre
+ST,,43833,GRP2,0.59375,1.5,0.65625,Oak Bay Centre
+ST,,43840,GRP2,0.666666667,1.5,0.729166667,Oak Bay Centre
+ST,,43861,GRP2,0.666666667,1.5,0.729166667,Oak Bay Centre
+TR,Theoren,>,>,>,>,>,>
+TR,,43837,GRP1,0.666666667,1.25,0.71875,Oak Bay Centre
+TR,,43839,GRP1,0.666666667,1.5,0.729166667,Oak Bay Centre
+TR,,43846,GRP1,0.65625,2,0.739583333,Oak Bay Centre
+TR,,43851,GRP1,0.666666667,1.25,0.71875,Oak Bay Centre
+TR,,43853,GRP1,0.645833333,1.5,0.708333333,Oak Bay Centre
+TR,,43860,GRP1,0.645833333,1.5,0.708333333,Oak Bay Centre
+VA,Ayva,>,>,>,>,>,>
+VA,,43833,Individual,0.625,1,0.666666667,Langford Centre
+VA,,43838,Individual,0.635416667,1.25,0.6875,Langford Centre
+VA,,43840,Individual,0.625,1,0.666666667,Langford Centre
+VA,,43845,Individual,0.635416667,1.25,0.6875,Langford Centre
+VA,,43847,Individual,0.625,1,0.666666667,Langford Centre
+VA,,43852,Individual,0.635416667,1.25,0.6875,Langford Centre
+VA,,43854,Individual,0.625,1,0.666666667,Langford Centre
+VA,,43859,Individual,0.635416667,1,0.677083333,Langford Centre
+VA,,43861,Individual,0.625,1,0.666666667,Langford Centre
+WS,Weston,>,>,>,>,>,>
+WS,,43837,Individual,0.59375,1.25,0.645833333,Langford Centre
+WS,,43837,Individual,0.645833333,1.75,0.71875,Langford Centre
+WS,,43839,Individual,0.59375,1,0.635416667,Langford Centre
+WS,,43839,Individual,0.635416667,2,0.71875,Langford Centre
+WS,,43844,Individual,0.59375,1.25,0.645833333,Langford Centre
+WS,,43844,Individual,0.645833333,1.75,0.71875,Langford Centre
+WS,,43846,Individual,0.59375,1,0.635416667,Langford Centre
+WS,,43846,Individual,0.635416667,2,0.71875,Langford Centre
+WS,,43851,Individual,0.59375,1.25,0.645833333,Langford Centre
+WS,,43851,Individual,0.645833333,1.75,0.71875,Langford Centre
+WS,,43853,Individual,0.59375,1,0.635416667,Langford Centre
+WS,,43853,Individual,0.635416667,2,0.71875,Langford Centre
+WS,,43858,Individual,0.59375,1.25,0.645833333,Langford Centre
+WS,,43858,Individual,0.645833333,1.75,0.71875,Langford Centre
+WS,,43860,Individual,0.59375,1,0.635416667,Langford Centre
+WS,,43860,Individual,0.635416667,2,0.71875,Langford Centre
+ZF,Zafeer,>,>,>,>,>,>
+ZF,,43836,Individual,0.583333333,1.5,0.645833333,Oak Bay Centre
+ZF,,43837,Individual,0.520833333,1,0.5625,Oak Bay Centre
+ZF,,43838,Individual,0.583333333,1.5,0.645833333,Oak Bay Centre
+ZF,,43839,Individual,0.541666667,1.25,0.59375,Oak Bay Centre
+ZF,,43840,Individual,0.583333333,1.75,0.65625,Oak Bay Centre
+ZF,,43843,Individual,0.583333333,1.5,0.645833333,Oak Bay Centre
+ZF,,43844,Individual,0.520833333,1,0.5625,Oak Bay Centre
+ZF,,43845,Individual,0.583333333,1.5,0.645833333,Oak Bay Centre
+ZF,,43846,Individual,0.541666667,1.25,0.59375,Oak Bay Centre
+ZF,,43847,Individual,0.59375,1.5,0.65625,Oak Bay Centre
+ZF,,43850,Individual,0.583333333,1.5,0.645833333,Oak Bay Centre
+ZF,,43851,Individual,0.520833333,1,0.5625,Oak Bay Centre
+ZF,,43852,Individual,0.583333333,1.5,0.645833333,Oak Bay Centre
+ZF,,43853,Individual,0.541666667,1.25,0.59375,Oak Bay Centre
+ZF,,43854,Individual,0.59375,1.25,0.645833333,Oak Bay Centre
+ZF,,43857,Individual,0.583333333,1.5,0.645833333,Oak Bay Centre
+ZF,,43858,Individual,0.520833333,1,0.5625,Oak Bay Centre
+ZF,,43859,Individual,0.583333333,1.5,0.645833333,Oak Bay Centre
+ZF,,43860,Individual,0.541666667,1.25,0.59375,Oak Bay Centre
+ZF,,43861,Individual,0.59375,1.5,0.65625,Oak Bay Centre
+ZN,Zan,>,>,>,>,>,>
+ZN,,43836,GRP9,0.645833333,1.25,0.697916667,Langford Centre
+ZN,,43838,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+ZN,,43843,GRP9,0.645833333,1.5,0.708333333,Langford Centre
+ZN,,43845,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+ZN,,43850,GRP9,0.645833333,1.25,0.697916667,Langford Centre
+ZN,,43852,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+ZN,,43857,GRP9,0.645833333,1.25,0.697916667,Langford Centre
+ZN,,43859,GRP6,0.645833333,1.25,0.697916667,Langford Centre
+ZW,Zaweed,>,>,>,>,>,>
+ZW,,43832,Individual,0.479166667,1.25,0.53125,Langford Centre
+ZW,,43837,Individual,0.65625,1,0.697916667,Langford Centre
+ZW,,43844,Individual,0.65625,1,0.697916667,Langford Centre
+ZW,,43851,Individual,0.65625,1,0.697916667,Langford Centre
+ZW,,43858,Individual,0.65625,1,0.697916667,Langford Centre
+ZW,,43833,GRP6,0.697916667,1.25,0.75,Langford Centre
+ZW,,43838,GRP7,0.708333333,1,0.75,Langford Centre
+ZW,,43845,GRP7,0.708333333,1,0.75,Langford Centre
+ZW,,43852,GRP7,0.708333333,1,0.75,Langford Centre
+ZW,,43859,GRP7,0.71875,1,0.760416667,Langford Centre
