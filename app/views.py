@@ -198,33 +198,35 @@ def check_overlap(name, client_initial, date, start_time, duration, end_time, no
 
 def check_gap(name, client_initial, date, start_time, duration, end_time, notes, types, temp):
     if temp:
-        result = TempSession.objects.filter(client_initial=client_initial, date=date, notes=notes, type=types)
+        if len(TempSession.objects.filter(client_initial=client_initial, date=date)) > 0:
+            result = TempSession.objects.filter(client_initial=client_initial, date=date,
+                                                start_time__gt=start_time, start_time=end_time)
+            if not result:
+                result = TempSession.objects.filter(client_initial=client_initial, date=date,
+                                                    start_time__lt=start_time, end_time=start_time)
+        else:
+            return None
     else:
-        result = Session.objects.filter(client_initial=client_initial, date=date, notes=notes, type=types)
-    for i in result:
-        if i.start_time > start_time and not i.start_time == end_time:
-            if temp:
-                data = {'client_name': name, 'client_initial': client_initial, 'date': date, 'start_time': start_time,
-                        'duration': duration, 'end_time': end_time, 'notes': notes, 'type': types, 'error': 'Gap'}
-                return data
-            else:
-                data_1 = {'client_name': name, 'client_initial': client_initial, 'date': date, 'start_time': start_time,
-                          'duration': duration, 'end_time': end_time, 'notes': notes, 'type': types, 'error': 'Update'}
-                data_2 = {'client_name': i.client_name, 'client_initial': i.client_initial,
-                          'date': i.date, 'start_time': i.start_time, 'duration': i.duration,
-                          'end_time': i.end_time, 'notes': notes, 'type': types, 'error': 'Cancellation'}
-                return [data_1, data_2]
-        elif i.start_time < start_time and not i.end_time == start_time:
-            if temp:
-                data = {'client_name': name, 'client_initial': client_initial, 'date': date, 'start_time': start_time,
-                        'duration': duration, 'end_time': end_time, 'notes': notes, 'type': types, 'error': 'Gap'}
-                return data
-            else:
-                data_1 = {'client_name': name, 'client_initial': client_initial, 'date': date, 'start_time': start_time,
-                          'duration': duration, 'end_time': end_time, 'notes': notes, 'type': types, 'error': 'Update'}
-                data_2 = {'client_name': i.client_name, 'client_initial': i.client_initial,
-                          'date': i.date, 'start_time': i.start_time, 'duration': i.duration, 'notes': notes,
-                          'type': types,
-                          'end_time': i.end_time, 'error': 'Cancellation'}
-                return [data_1, data_2]
-    return None
+        if len(Session.objects.filter(client_initial=client_initial, date=date)) > 0:
+            result = Session.objects.filter(client_initial=client_initial, date=date,
+                                            start_time__gt=start_time, start_time=end_time)
+            if not result:
+                result = Session.objects.filter(client_initial=client_initial, date=date,
+                                                start_time__lt=start_time, end_time=start_time)
+        else:
+            return None
+
+    if not result and temp:
+        data = {'client_name': name, 'client_initial': client_initial, 'date': date, 'start_time': start_time,
+                'duration': duration, 'end_time': end_time, 'notes': notes, 'type': types, 'error': 'Gap'}
+        return data
+    elif not result and not temp:
+        data_1 = {'client_name': name, 'client_initial': client_initial, 'date': date, 'start_time': start_time,
+                  'duration': duration, 'end_time': end_time, 'notes': notes, 'type': types, 'error': 'Update'}
+        latest = Session.objects.filter(client_initial=client_initial, date=date)[0]
+        data_2 = {'client_name': latest.client_name, 'client_initial': latest.client_initial,
+                  'date': latest.date, 'start_time': latest.start_time, 'duration': latest.duration,
+                  'end_time': latest.end_time, 'notes': latest.notes, 'type': latest.type, 'error': 'Cancellation'}
+        return [data_1, data_2]
+    else:
+        return None
