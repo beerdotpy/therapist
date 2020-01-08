@@ -141,6 +141,18 @@
                         <td style="padding:7px"><center>{{i.type}}</td>
                         <td style="padding:7px"><center>{{i.error}}</td>
                     </tr>
+                {% elif i.error == 'NEW' %}
+                    <tr style="background:yellow">
+                        <td style="padding:7px"><center>{{i.client_name}}</td>
+                        <td style="padding:7px"><center>{{i.client_initial}}</td>
+                        <td style="padding:7px"><center>{{i.date}}</td>
+                        <td style="padding:7px"><center>{{i.start_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.duration}}</td>
+                        <td style="padding:7px"><center>{{i.end_time | time:"H:i" }}</td>
+                        <td style="padding:7px"><center>{{i.notes}}</td>
+                        <td style="padding:7px"><center>{{i.type}}</td>
+                        <td style="padding:7px"><center>{{i.error}}</td>
+                    </tr>
                 {% else %}
                  <tr>
                         <td style="padding:7px"><center>{{i.client_name}}</td>
