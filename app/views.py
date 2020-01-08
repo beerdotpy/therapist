@@ -6,8 +6,6 @@ from models import Session, TempSession
 from django.shortcuts import render
 from datetime import datetime
 
-result_list = []
-
 
 @csrf_exempt
 def parse_csv(request):
@@ -20,8 +18,7 @@ def parse_csv(request):
             result_list = check_records(TempSession.objects.filter(filename=request.POST['data']))
             return render(request, "home.html", {"result": result_list, "button_type": "Submit"})
         elif request.POST['button'] == 'Submit':
-            global result_list
-            save_records(result_list)
+            save_records(list(TempSession.objects.all()))
             return render(request, "home.html", {"button_type": "Saved"})
     return render(request, "home.html", {"button_type": "Upload"})
 
@@ -75,20 +72,28 @@ def check_records(records):
         result_1 = check_duplicate(row.client_name, row.client_initial, row.date, row.start_time, row.duration,
                                    row.end_time, row.notes, row.type, False)
         if result_1:
+            row.error = result_1['error']
+            row.save()
             result_list.append(result_1)
         else:
             result_2 = check_overlap(row.client_name, row.client_initial, row.date, row.start_time, row.duration,
                                      row.end_time, row.notes, row.type, False)
             if result_2:
+                row.error = result_list[0]['error']
+                row.save()
                 for i in result_2:
                     result_list.append(i)
             else:
                 result_3 = check_gap(row.client_name, row.client_initial, row.date, row.start_time, row.duration,
                                      row.end_time, row.notes, row.type, False)
                 if result_3:
+                    row.error = result_list[0]['error']
+                    row.save()
                     for i in result_3:
                         result_list.append(i)
                 else:
+                    row.error = 'NEW'
+                    row.save()
                     data = {'client_name': row.client_name, 'client_initial': row.client_initial, 'date': row.date,
                             'start_time': row.start_time, 'duration': row.duration, 'end_time': row.end_time,
                             'notes': row.notes, 'type': row.type, 'error': 'NEW'}
@@ -98,28 +103,28 @@ def check_records(records):
 
 def save_records(results):
     for i in results:
-        if i['error'] == 'Already Exists':
+        if i.error == 'Already Exists':
             pass
-        elif i['error'] == 'Cancellation':
+        elif i.error == 'Cancellation':
             pass
-        elif i['error'] == 'NEW':
+        elif i.error == 'NEW':
             session = Session()
-            session.client_initial = i['client_initial']
-            session.client_name = i['client_name']
-            session.duration = i['duration']
-            session.date = i['date']
-            session.start_time = i['start_time']
-            session.end_time = i['end_time']
-            session.type = i['type']
-            session.notes = i['notes']
+            session.client_initial = i.client_initial
+            session.client_name = i.client_name
+            session.duration = i.duration
+            session.date = i.date
+            session.start_time = i.start_time
+            session.end_time = i.end_time
+            session.type = i.type
+            session.notes = i.notes
             session.save()
-        elif i['error'] == 'Update':
-            Session.objects.filter(client_name=i['client_name'], date=i['date']).update(
-                start_time=i['start_time'],
-                end_time=i['end_time'],
-                type=i['type'],
-                notes=i['notes'],
-                duration=i['duration'])
+        elif i.error == 'Update':
+            Session.objects.filter(client_name=i.client_name, date=i.date).update(
+                start_time=i.start_time,
+                end_time=i.end_time,
+                type=i.type,
+                notes=i.notes,
+                duration=i.duration)
 
 
 def check_duplicate(name, client_initial, date, start_time, duration, end_time, notes, types, temp):
