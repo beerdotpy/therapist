@@ -125,6 +125,7 @@ def save_records(results):
                 type=i.type,
                 notes=i.notes,
                 duration=i.duration)
+    TempSession.objects.all().delete()
 
 
 def check_duplicate(name, client_initial, date, start_time, duration, end_time, notes, types, temp):
