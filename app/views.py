@@ -160,32 +160,24 @@ def check_overlap(name, client_initial, date, start_time, duration, end_time, no
     if temp:
         result = TempSession.objects.filter(client_initial=client_initial,
                                             date=date,
-                                            start_time__lt=start_time,
-                                            end_time__gt=start_time,
-                                            notes=notes,
-                                            type=types)
+                                            start_time__lte=start_time,
+                                            end_time__gt=start_time)
     else:
         result = Session.objects.filter(client_initial=client_initial,
                                         date=date,
                                         start_time__lt=start_time,
-                                        end_time__gt=start_time,
-                                        notes=notes,
-                                        type=types)
+                                        end_time__gt=start_time)
     if not result:
         if temp:
             result = TempSession.objects.filter(client_initial=client_initial,
                                                 date=date,
                                                 start_time__lt=end_time,
-                                                end_time__gt=end_time,
-                                                notes=notes,
-                                                type=types)
+                                                end_time__gt=end_time)
         else:
             result = Session.objects.filter(client_initial=client_initial,
                                             date=date,
                                             start_time__lt=end_time,
-                                            end_time__gt=end_time,
-                                            notes=notes,
-                                            type=types)
+                                            end_time__gt=end_time)
 
     if result and temp:
         data = {'client_name': name, 'client_initial': client_initial, 'date': date, 'start_time': start_time,
