@@ -150,7 +150,7 @@ def check_duplicate(name, client_initial, date, start_time, duration, end_time, 
         return data
     elif result and not temp:
         data = {'client_name': name, 'client_initial': client_initial, 'date': date, 'start_time': start_time,
-                'duration': duration, 'end_time': end_time, 'notes': notes, 'type': types, 'error': 'Already Exists'}
+                'duration': duration, 'end_time': end_time, 'notes': notes, 'type': types, 'error': 'No Change'}
         return data
     else:
         return None
