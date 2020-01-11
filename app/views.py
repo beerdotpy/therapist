@@ -32,7 +32,7 @@ def check_csv(csv_file):
     for row in csv_reader:
         if row[1]:
             name = row[1]
-        if row[2] != '>' and row[0] != '' and row[0] != 'Initial':
+        if row[2] != '>' and row[0] != '' and row[2] != 'Date':
             start_time = datetime.strptime(row[4], "%I:%M %p").time()
             end_time = datetime.strptime(row[6], "%I:%M %p").time()
             date = datetime.strptime((row[2] + " " + str(datetime.now().year)).replace(" ", "/"), "%a/%b/%d/%Y").date()
