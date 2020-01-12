@@ -93,7 +93,10 @@ def check_records(filename):
 
         result_1 = check_duplicate(row.client_name, row.client_initial, row.date, row.start_time, row.duration,
                                    row.end_time, row.notes, row.type, False, id)
-        if not result_1:
+        if result_1:
+            row.error = result_1['error']
+            row.save()
+        else:
             result_2 = check_overlap(row.client_name, row.client_initial, row.date, row.start_time, row.duration,
                                      row.end_time, row.notes, row.type, False, id)
             if result_2:
@@ -148,10 +151,12 @@ def check_records(filename):
 def save_records(results):
     for i in results:
         if i.error == 'No Change':
+            Session.objects.filter(client_name=i.client_name, date=i.date, start_time=i.start_time,
+                                   end_time=i.end_time, duration=i.duration).update(status=i.error)
             pass
         elif i.error == 'Cancellation':
             Session.objects.filter(client_name=i.client_name, date=i.date, start_time=i.start_time,
-                                   end_time=i.end_time, duration=i.duration).delete()
+                                   end_time=i.end_time, duration=i.duration).update(status=i.error)
         elif i.error == 'NEW':
             session = Session()
             session.client_initial = i.client_initial
@@ -166,7 +171,7 @@ def save_records(results):
         elif i.error == 'Update':
             Session.objects.create(client_initial=i.client_initial, client_name=i.client_name, date=i.date,
                                    start_time=i.start_time, end_time=i.end_time, type=i.type, notes=i.notes,
-                                   duration=i.duration).save()
+                                   duration=i.duration, status=i.error).save()
     TempSession.objects.all().delete()
 
 
