@@ -70,8 +70,27 @@ def check_csv(csv_file):
 def check_records(filename):
     records = TempSession.objects.filter(filename=filename)
     result_list = []
+    name = ""
     id = uuid.uuid1(4)
     for row in list(records):
+        if name == "" or name != row.client_name:
+            # records which are present in the admin panel but have been removed from csv
+            for i in Session.objects.filter(client_name=name).exclude(updated_at=id):
+                session = TempSession()
+                session.client_initial = i.client_initial
+                session.notes = i.notes
+                session.duration = i.duration
+                session.type = i.type
+                session.client_name = i.client_name
+                session.date = i.date
+                session.start_time = i.start_time
+                session.end_time = i.end_time
+                session.filename = filename
+                session.error = "Cancellation"
+                session.save()
+                result_list.append(session)
+            name = row.client_name
+
         result_1 = check_duplicate(row.client_name, row.client_initial, row.date, row.start_time, row.duration,
                                    row.end_time, row.notes, row.type, False, id)
         if not result_1:
@@ -123,21 +142,6 @@ def check_records(filename):
                             'start_time': row.start_time, 'duration': row.duration, 'end_time': row.end_time,
                             'notes': row.notes, 'type': row.type, 'error': 'NEW'}
                     result_list.append(data)
-    # records which are present in the admin panel but have been removed from csv
-    for i in Session.objects.all().exclude(updated_at=id):
-        session = TempSession()
-        session.client_initial = i.client_initial
-        session.notes = i.notes
-        session.duration = i.duration
-        session.type = i.type
-        session.client_name = i.client_name
-        session.date = i.date
-        session.start_time = i.start_time
-        session.end_time = i.end_time
-        session.filename = filename
-        session.error = "Cancellation"
-        session.save()
-        result_list.append(session)
     return result_list
 
 
