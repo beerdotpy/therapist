@@ -6,6 +6,19 @@ from models import Session, TempSession
 from django.shortcuts import render
 from datetime import datetime
 import uuid
+from django.http import HttpResponse
+import json
+
+
+@csrf_exempt
+def login(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        if data['password'] == 'admin@2019':
+            name = data['email'].split("@")[0]
+            return HttpResponse(json.dumps({"status": "Authorized", "client_name": name}), status=200)
+        else:
+            return HttpResponse(json.dumps({"status": "UnAuthorized"}), status=401)
 
 
 @csrf_exempt
