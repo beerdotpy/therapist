@@ -8,6 +8,8 @@ from datetime import datetime
 import uuid
 from django.http import HttpResponse
 import json
+from rest_framework.renderers import JSONRenderer
+from serializers import SessionSerializer
 
 
 @csrf_exempt
@@ -19,6 +21,14 @@ def login(request):
             return HttpResponse(json.dumps({"status": "Authorized", "client_name": name}), status=200)
         else:
             return HttpResponse(json.dumps({"status": "UnAuthorized"}), status=401)
+
+
+@csrf_exempt
+def get_sessions(request):
+    if request.method == 'GET':
+        sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'])
+        serializer = SessionSerializer(sessions, many=True)
+        return HttpResponse(JSONRenderer().render(serializer.data), status=200)
 
 
 @csrf_exempt
@@ -312,3 +322,5 @@ def check_gap(name, client_initial, date, start_time, duration, end_time, notes,
         return r_list
     else:
         return None
+
+
