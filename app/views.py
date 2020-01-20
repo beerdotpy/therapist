@@ -10,6 +10,7 @@ from django.http import HttpResponse
 import json
 from rest_framework.renderers import JSONRenderer
 from serializers import SessionSerializer
+from django.core.exceptions import ObjectDoesNotExist
 
 
 @csrf_exempt
@@ -26,9 +27,25 @@ def login(request):
 @csrf_exempt
 def get_sessions(request):
     if request.method == 'GET':
-        sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'])
+        sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
+                                          is_accepted=request.GET['is_accepted'])
         serializer = SessionSerializer(sessions, many=True)
         return HttpResponse(JSONRenderer().render(serializer.data), status=200)
+
+
+@csrf_exempt
+def update_sessions(request):
+    if request.method == 'GET':
+        if request.GET['action'] == 'Accept':
+            try:
+                session = Session.objects.get(client_name=request.GET['client_name'], start_time=request.GET['start_time'],
+                                              end_time=request.GET['end_time'], date=request.GET['date'])
+                session.is_accepted = True
+                session.save()
+            except ObjectDoesNotExist:
+                return HttpResponse(json.dumps({'status': 'Not Accepted'}), status=400)
+            return HttpResponse(json.dumps({'status': 'Accepted'}), status=200)
+        return HttpResponse(json.dumps({'status': 'Accepted'}), status=200)
 
 
 @csrf_exempt
@@ -322,5 +339,3 @@ def check_gap(name, client_initial, date, start_time, duration, end_time, notes,
         return r_list
     else:
         return None
-
-

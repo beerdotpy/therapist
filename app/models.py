@@ -14,6 +14,7 @@ class Session(models.Model):
     notes = models.TextField()
     updated_at = models.CharField(max_length=50, blank=True, null=True)
     status = models.CharField(max_length=20, default='NEW')
+    is_accepted = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['client_name', 'date', 'start_time']
