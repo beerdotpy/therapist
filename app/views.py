@@ -38,7 +38,8 @@ def update_sessions(request):
     if request.method == 'GET':
         if request.GET['action'] == 'Accept':
             try:
-                session = Session.objects.get(client_name=request.GET['client_name'], start_time=request.GET['start_time'],
+                session = Session.objects.get(client_name=request.GET['client_name'],
+                                              start_time=request.GET['start_time'],
                                               end_time=request.GET['end_time'], date=request.GET['date'])
                 session.is_accepted = True
                 session.save()
@@ -115,7 +116,7 @@ def check_records(filename):
     for row in list(records):
         if name == "" or name != row.client_name:
             # records which are present in the admin panel but have been removed from csv
-            for i in Session.objects.filter(client_name=name).exclude(updated_at=id):
+            for i in Session.objects.filter(client_name=name, date__month__gte=row.date.month).exclude(updated_at=id):
                 session = TempSession()
                 session.client_initial = i.client_initial
                 session.notes = i.notes
