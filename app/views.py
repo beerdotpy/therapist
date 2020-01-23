@@ -11,6 +11,11 @@ import json
 from rest_framework.renderers import JSONRenderer
 from serializers import SessionSerializer
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import send_mail
+
+
+from_email = 'contact@gmail.com'
+to_email = ['sarthakmeh03@gmail.com', 'kkalaawy@gmail.com']
 
 
 @csrf_exempt
@@ -46,7 +51,36 @@ def update_sessions(request):
             except ObjectDoesNotExist:
                 return HttpResponse(json.dumps({'status': 'Not Accepted'}), status=400)
             return HttpResponse(json.dumps({'status': 'Accepted'}), status=200)
-        return HttpResponse(json.dumps({'status': 'Accepted'}), status=200)
+        elif request.GET['action'] == 'Edit':
+            session = Session.objects.get(client_name=request.GET['client_name'],
+                                          start_time=request.GET['start_time'],
+                                          end_time=request.GET['end_time'], date=request.GET['date'])
+            session.status = 'Request Sent'
+            session.save()
+            message = request.GET['client_name'] + " has requested modification in the below session\n" \
+                      + "Start Time - " + request.GET['start_time'] + "\nEnd Time - " + request.GET['end_time'] + \
+                      "\nDate - " + request.GET['date']
+            send_mail(request.GET['client_name'] + " has requested an edit in session",
+                      message,
+                      from_email,
+                      to_email)
+            return HttpResponse(json.dumps({'status': 'Updated'}), status=200)
+        elif request.GET['action'] == 'Cancel':
+            session = Session.objects.get(client_name=request.GET['client_name'],
+                                          start_time=request.GET['start_time'],
+                                          end_time=request.GET['end_time'], date=request.GET['date'])
+            session.status = 'Request Sent'
+            session.save()
+            message = request.GET['client_name'] + " has requested cancellation in the below session\n" \
+                      + "\nStart Time - " + request.GET['start_time'] + "\nEnd Time - " + request.GET['end_time'] + \
+                      "\nDate - " + request.GET['date']
+            send_mail(request.GET['client_name'] + " has cancelled a session",
+                      message,
+                      from_email,
+                      to_email)
+            send_mail("Client has cancelled a session", message, 'contact@gmail.com', ['sarthakmeh03@gmail.com'])
+            return HttpResponse(json.dumps({'status': 'Cancelled'}), status=200)
+        return HttpResponse(json.dumps({'status': 'Action not available'}), status=200)
 
 
 @csrf_exempt
