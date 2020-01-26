@@ -32,8 +32,10 @@ def login(request):
 @csrf_exempt
 def get_sessions(request):
     if request.method == 'GET':
+        current_date = datetime.today().date()
         sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
-                                          is_accepted=request.GET['is_accepted'])
+                                          is_accepted=request.GET['is_accepted'],
+                                          date__gte=current_date)
         serializer = SessionSerializer(sessions, many=True)
         return HttpResponse(JSONRenderer().render(serializer.data), status=200)
 
@@ -57,13 +59,14 @@ def update_sessions(request):
                                           end_time=request.GET['end_time'], date=request.GET['date'])
             session.status = 'Request Sent'
             session.save()
-            message = request.GET['client_name'] + " has requested modification in the below session\n" \
-                      + "Start Time - " + request.GET['start_time'] + "\nEnd Time - " + request.GET['end_time'] + \
-                      "\nDate - " + request.GET['date']
+            message = request.GET['client_name'] + " has requested modification in the below session<br>" \
+                      + "Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET['end_time'] + \
+                      "<br>Date - " + request.GET['date'] + "<br><br>NEW SESSION REQUESTED: <br>" + request.GET['message']
             send_mail(request.GET['client_name'] + " has requested an edit in session",
-                      message,
+                      '',
                       from_email,
-                      to_email)
+                      to_email,
+                      html_message=message)
             return HttpResponse(json.dumps({'status': 'Updated'}), status=200)
         elif request.GET['action'] == 'Cancel':
             session = Session.objects.get(client_name=request.GET['client_name'],
@@ -71,14 +74,19 @@ def update_sessions(request):
                                           end_time=request.GET['end_time'], date=request.GET['date'])
             session.status = 'Request Sent'
             session.save()
-            message = request.GET['client_name'] + " has requested cancellation in the below session\n" \
-                      + "\nStart Time - " + request.GET['start_time'] + "\nEnd Time - " + request.GET['end_time'] + \
-                      "\nDate - " + request.GET['date']
+            if request.GET['message'] == 'true':
+                message = request.GET['client_name'] + " has requested <b>late cancellation</b> in the below session<br>" \
+                          + "<br>Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET['end_time'] + \
+                          "<br>Date - " + request.GET['date']
+            else:
+                message = request.GET['client_name'] + " has requested cancellation in the below session<br>" \
+                          + "<br>Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET['end_time'] + \
+                          "<br>Date - " + request.GET['date']
             send_mail(request.GET['client_name'] + " has cancelled a session",
-                      message,
+                      '',
                       from_email,
-                      to_email)
-            send_mail("Client has cancelled a session", message, 'contact@gmail.com', ['sarthakmeh03@gmail.com'])
+                      to_email,
+                      html_message=message)
             return HttpResponse(json.dumps({'status': 'Cancelled'}), status=200)
         return HttpResponse(json.dumps({'status': 'Action not available'}), status=200)
 
