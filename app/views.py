@@ -13,7 +13,6 @@ from serializers import SessionSerializer
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 
-
 from_email = 'contact@gmail.com'
 to_email = ['sarthakmeh03@gmail.com', 'kkalaawy@gmail.com']
 
@@ -35,7 +34,19 @@ def get_sessions(request):
         current_date = datetime.today().date()
         sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
                                           is_accepted=request.GET['is_accepted'],
-                                          date__gte=current_date)
+                                          date__gte=current_date).exclude(status__in=['Cancellation',
+                                                                                      'Late Cancellation'])
+        serializer = SessionSerializer(sessions, many=True)
+        return HttpResponse(JSONRenderer().render(serializer.data), status=200)
+
+
+@csrf_exempt
+def get_timesheet(request):
+    if request.method == 'GET':
+        current_date = datetime.today().date()
+        # TODO - Change month lte to only lt
+        sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
+                                          date__month__lte=current_date.month).exclude(status='Cancellation')
         serializer = SessionSerializer(sessions, many=True)
         return HttpResponse(JSONRenderer().render(serializer.data), status=200)
 
@@ -61,7 +72,8 @@ def update_sessions(request):
             session.save()
             message = request.GET['client_name'] + " has requested modification in the below session<br>" \
                       + "Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET['end_time'] + \
-                      "<br>Date - " + request.GET['date'] + "<br><br>NEW SESSION REQUESTED: <br>" + request.GET['message']
+                      "<br>Date - " + request.GET['date'] + "<br><br>NEW SESSION REQUESTED: <br>" + request.GET[
+                          'message']
             send_mail(request.GET['client_name'] + " has requested an edit in session",
                       '',
                       from_email,
@@ -72,15 +84,20 @@ def update_sessions(request):
             session = Session.objects.get(client_name=request.GET['client_name'],
                                           start_time=request.GET['start_time'],
                                           end_time=request.GET['end_time'], date=request.GET['date'])
-            session.status = 'Request Sent'
-            session.save()
             if request.GET['message'] == 'true':
-                message = request.GET['client_name'] + " has requested <b>late cancellation</b> in the below session<br>" \
-                          + "<br>Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET['end_time'] + \
+                message = request.GET[
+                              'client_name'] + " has requested <b>late cancellation</b> in the below session<br>" \
+                          + "<br>Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET[
+                              'end_time'] + \
                           "<br>Date - " + request.GET['date']
+                session.status = 'Late Cancellation'
+                session.save()
             else:
+                session.status = 'Request Sent'
+                session.save()
                 message = request.GET['client_name'] + " has requested cancellation in the below session<br>" \
-                          + "<br>Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET['end_time'] + \
+                          + "<br>Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET[
+                              'end_time'] + \
                           "<br>Date - " + request.GET['date']
             send_mail(request.GET['client_name'] + " has cancelled a session",
                       '',
@@ -88,6 +105,27 @@ def update_sessions(request):
                       to_email,
                       html_message=message)
             return HttpResponse(json.dumps({'status': 'Cancelled'}), status=200)
+        elif request.GET['action'] == 'RaiseQuery':
+            try:
+                session = Session.objects.get(client_name=request.GET['client_name'],
+                                              start_time=request.GET['start_time'],
+                                              end_time=request.GET['end_time'], date=request.GET['date'])
+            except ObjectDoesNotExist:
+                return HttpResponse(json.dumps({'status': 'Not Found'}), status=400)
+            message = request.GET['client_name'] + " has raised concern for the below session in the Timesheet<br>" \
+                      + "<br>Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET['end_time'] + \
+                      "<br>Date - " + request.GET['date'] + "<br>Query: " + request.GET['message']
+            send_mail(request.GET['client_name'] + " has raised a concern in the Timesheet",
+                      '',
+                      from_email,
+                      to_email,
+                      html_message=message)
+            return HttpResponse(json.dumps({'status': 'Concerned Raised'}), status=200)
+        elif request.GET['action'] == 'AcceptAll':
+            send_mail(request.GET['client_name'] + " has accepted the Timesheet",
+                      '',
+                      from_email,
+                      to_email)
         return HttpResponse(json.dumps({'status': 'Action not available'}), status=200)
 
 
@@ -238,8 +276,10 @@ def save_records(results):
                                    end_time=i.end_time, duration=i.duration).update(status=i.error)
             pass
         elif i.error == 'Cancellation':
-            Session.objects.filter(client_name=i.client_name, date=i.date, start_time=i.start_time,
-                                   end_time=i.end_time, duration=i.duration).update(status=i.error)
+            session = Session.objects.filter(client_name=i.client_name, date=i.date, start_time=i.start_time,
+                                             end_time=i.end_time, duration=i.duration)
+            if session[0].status != 'Late Cancellation':
+                session.update(status=i.error)
         elif i.error == 'NEW':
             session = Session()
             session.client_initial = i.client_initial
