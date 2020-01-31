@@ -34,3 +34,9 @@ class TempSession(models.Model):
 
     class Meta:
         ordering = ['client_name', 'date', 'start_time']
+
+
+class Timesheet(models.Model):
+    client_name = models.CharField(max_length=200)
+    is_accepted = models.BooleanField(default=False)
+    month = models.IntegerField()

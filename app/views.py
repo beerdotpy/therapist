@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.views.decorators.csrf import csrf_exempt
 import csv
-from models import Session, TempSession
+from models import Session, TempSession, Timesheet
 from django.shortcuts import render
 from datetime import datetime
 import uuid
@@ -36,6 +36,7 @@ def get_sessions(request):
                                           is_accepted=request.GET['is_accepted'],
                                           date__gte=current_date).exclude(status__in=['Cancellation',
                                                                                       'Late Cancellation'])
+
         serializer = SessionSerializer(sessions, many=True)
         return HttpResponse(JSONRenderer().render(serializer.data), status=200)
 
@@ -43,17 +44,48 @@ def get_sessions(request):
 @csrf_exempt
 def get_timesheet(request):
     if request.method == 'GET':
-        current_date = datetime.today().date()
-        # TODO - Change month lte to only lt
-        sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
-                                          date__month__lte=current_date.month).exclude(status='Cancellation')
-        serializer = SessionSerializer(sessions, many=True)
-        return HttpResponse(JSONRenderer().render(serializer.data), status=200)
+        if int(request.GET['month']) == -1:
+            dates = Session.objects.filter(client_name__icontains=request.GET['client_name']).dates('date', 'month', order="DESC")
+            months = []
+            for d in dates:
+                if datetime.today().date() >= d:
+                    months.append(d.month)
+            latest_month = -1
+            if datetime.today().date().day > 5:
+                if len(months) >= 2:
+                    latest_month = months[1]
+            else:
+                if len(months) >= 3:
+                    latest_month = months[2]
+            sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
+                                              date__month=latest_month).exclude(status='Cancellation')
+            try:
+                timesheet = Timesheet.objects.get(client_name=request.GET['client_name'],
+                                                  month=latest_month)
+                is_accepted = timesheet.is_accepted
+            except ObjectDoesNotExist:
+                is_accepted = False
+            serializer = SessionSerializer(sessions, many=True)
+            response = {'status': is_accepted, 'sessions': serializer.data, 'archive_months': months[1:]}
+            return HttpResponse(JSONRenderer().render(response), status=200)
+        else:
+            sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
+                                              date__month=int(request.GET['month']) + 1).exclude(status='Cancellation')
+            try:
+                timesheet = Timesheet.objects.get(client_name=request.GET['client_name'],
+                                                  month=int(request.GET['month']) + 1)
+                is_accepted = timesheet.is_accepted
+            except ObjectDoesNotExist:
+                is_accepted = False
+            serializer = SessionSerializer(sessions, many=True)
+            response = {'status': is_accepted, 'sessions': serializer.data}
+            return HttpResponse(JSONRenderer().render(response), status=200)
 
 
 @csrf_exempt
 def update_sessions(request):
     if request.method == 'GET':
+        # User has accepted a session
         if request.GET['action'] == 'Accept':
             try:
                 session = Session.objects.get(client_name=request.GET['client_name'],
@@ -64,6 +96,7 @@ def update_sessions(request):
             except ObjectDoesNotExist:
                 return HttpResponse(json.dumps({'status': 'Not Accepted'}), status=400)
             return HttpResponse(json.dumps({'status': 'Accepted'}), status=200)
+        # User has request to edit a session
         elif request.GET['action'] == 'Edit':
             session = Session.objects.get(client_name=request.GET['client_name'],
                                           start_time=request.GET['start_time'],
@@ -80,6 +113,7 @@ def update_sessions(request):
                       to_email,
                       html_message=message)
             return HttpResponse(json.dumps({'status': 'Updated'}), status=200)
+        # User has cancelled a session
         elif request.GET['action'] == 'Cancel':
             session = Session.objects.get(client_name=request.GET['client_name'],
                                           start_time=request.GET['start_time'],
@@ -105,6 +139,7 @@ def update_sessions(request):
                       to_email,
                       html_message=message)
             return HttpResponse(json.dumps({'status': 'Cancelled'}), status=200)
+        # User has raised query in the timesheet
         elif request.GET['action'] == 'RaiseQuery':
             try:
                 session = Session.objects.get(client_name=request.GET['client_name'],
@@ -113,19 +148,24 @@ def update_sessions(request):
             except ObjectDoesNotExist:
                 return HttpResponse(json.dumps({'status': 'Not Found'}), status=400)
             message = request.GET['client_name'] + " has raised concern for the below session in the Timesheet<br>" \
-                      + "<br>Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET['end_time'] + \
-                      "<br>Date - " + request.GET['date'] + "<br>Query: " + request.GET['message']
+                      + "<br>Date - " + request.GET['date'] + "<br>Start Time - " + request.GET['start_time'] + \
+                      "<br>End Time - " + request.GET['end_time'] + "<br>Query: " + request.GET['message']
             send_mail(request.GET['client_name'] + " has raised a concern in the Timesheet",
                       '',
                       from_email,
                       to_email,
                       html_message=message)
             return HttpResponse(json.dumps({'status': 'Concerned Raised'}), status=200)
+        # User has accepted the timesheet
         elif request.GET['action'] == 'AcceptAll':
+            Timesheet(client_name=request.GET['client_name'],
+                      is_accepted=True,
+                      month=int(request.GET['message']) + 1).save()
             send_mail(request.GET['client_name'] + " has accepted the Timesheet",
                       '',
                       from_email,
                       to_email)
+            return HttpResponse(json.dumps({'status': 'Timesheet accepted'}), status=200)
         return HttpResponse(json.dumps({'status': 'Action not available'}), status=200)
 
 
