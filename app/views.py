@@ -147,6 +147,8 @@ def update_sessions(request):
                                               end_time=request.GET['end_time'], date=request.GET['date'])
             except ObjectDoesNotExist:
                 return HttpResponse(json.dumps({'status': 'Not Found'}), status=400)
+            session.is_disputed = True
+            session.save()
             message = request.GET['client_name'] + " has raised concern for the below session in the Timesheet<br>" \
                       + "<br>Date - " + request.GET['date'] + "<br>Start Time - " + request.GET['start_time'] + \
                       "<br>End Time - " + request.GET['end_time'] + "<br>Query: " + request.GET['message']

@@ -13,3 +13,4 @@ class SessionSerializer(serializers.Serializer):
     updated_at = serializers.CharField(max_length=50)
     status = serializers.CharField(max_length=20, default='NEW')
     is_accepted = serializers.BooleanField()
+    is_disputed = serializers.BooleanField()
