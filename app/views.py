@@ -48,15 +48,15 @@ def get_timesheet(request):
             dates = Session.objects.filter(client_name__icontains=request.GET['client_name']).dates('date', 'month', order="DESC")
             months = []
             for d in dates:
-                if datetime.today().date() >= d:
+                if datetime.today().date() > d:
                     months.append(d.month)
             latest_month = -1
             if datetime.today().date().day > 5:
+                if len(months) >= 1:
+                    latest_month = months[0]
+            else:
                 if len(months) >= 2:
                     latest_month = months[1]
-            else:
-                if len(months) >= 3:
-                    latest_month = months[2]
             sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
                                               date__month=latest_month).exclude(status='Cancellation')
             try:
