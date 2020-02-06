@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.views.decorators.csrf import csrf_exempt
-import csv
 from models import Session, TempSession, Timesheet
 from django.shortcuts import render
 from datetime import datetime
@@ -11,7 +10,10 @@ import json
 from rest_framework.renderers import JSONRenderer
 from serializers import SessionSerializer
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
+import csv
+import os
+from calendar import monthrange
 
 from_email = 'contact@gmail.com'
 to_email = ['sarthakmeh03@gmail.com', 'kkalaawy@gmail.com']
@@ -80,6 +82,64 @@ def get_timesheet(request):
             serializer = SessionSerializer(sessions, many=True)
             response = {'status': is_accepted, 'sessions': serializer.data}
             return HttpResponse(JSONRenderer().render(response), status=200)
+    elif request.method == 'POST':
+        data = eval(request.body)
+        # Get total days for that particular month
+        total_days = monthrange(datetime.today().year, int(data[str(41)]) + 1)[1]
+        d = [['X' for i in range(49)] for j in range(total_days+1)]
+        # First row of matrix will contain time slots
+        for i in range(1):
+            min = 8
+            sec = 00
+            for j in range(1, 49):
+                d[i][j] = str(min) + ":" + str(sec)
+                if sec == 45:
+                    min += 1
+                    sec = 00
+                else:
+                    sec += 15
+        # 2nd row till last row will contain X where time is blocked and empty cell where time is allocated
+        for j in range(1, total_days + 1):
+            d[j][0] = str(j) + "/02/20"
+            start_time = data[str(j)].split(";")[0]
+            end_time = data[str(j)].split(";")[1]
+            start_hr = int(start_time.split(":")[0])
+            start_min = start_time.split(":")[1]
+            end_hr = int(end_time.split(":")[0])
+            end_min = end_time.split(":")[1]
+            start_pos = (start_hr - 8 + 3 * (start_hr-8)) + 1
+            if start_min == '15':
+                start_pos += 1
+            elif start_min == '30':
+                start_pos += 2
+            elif start_min == '45':
+                start_pos += 3
+            end_pos = (end_hr - 8 + 3 * (end_hr - 8)) + 1
+            if end_min == '15':
+                end_pos += 1
+            elif end_min == '30':
+                end_pos += 2
+            elif end_min == '45':
+                end_pos += 3
+            for i in range(start_pos, end_pos+1):
+                d[j][i] = ' '
+
+        output_file = os.getcwd() + '/templates/availability.csv'
+        with open(output_file, 'w') as file:
+            writer = csv.writer(file)
+            # Gives the header name row into csv
+            writer.writerow(d[0])
+            # Data add in csv file
+            for i in d[1:]:
+                writer.writerow(i)
+        msg = EmailMessage('Availability Submitted by ' + data[str(40)],
+                           'Please find the Excel sheet attached',
+                           from_email,
+                           to_email)
+        msg.content_subtype = "html"
+        msg.attach_file(output_file)
+        msg.send()
+        return HttpResponse(JSONRenderer().render({"status": "Availability submitted"}), status=200)
 
 
 @csrf_exempt
