@@ -101,28 +101,29 @@ def get_timesheet(request):
         # 2nd row till last row will contain X where time is blocked and empty cell where time is allocated
         for j in range(1, total_days + 1):
             d[j][0] = str(j) + "/02/20"
-            start_time = data[str(j)].split(";")[0]
-            end_time = data[str(j)].split(";")[1]
-            start_hr = int(start_time.split(":")[0])
-            start_min = start_time.split(":")[1]
-            end_hr = int(end_time.split(":")[0])
-            end_min = end_time.split(":")[1]
-            start_pos = (start_hr - 8 + 3 * (start_hr-8)) + 1
-            if start_min == '15':
-                start_pos += 1
-            elif start_min == '30':
-                start_pos += 2
-            elif start_min == '45':
-                start_pos += 3
-            end_pos = (end_hr - 8 + 3 * (end_hr - 8)) + 1
-            if end_min == '15':
-                end_pos += 1
-            elif end_min == '30':
-                end_pos += 2
-            elif end_min == '45':
-                end_pos += 3
-            for i in range(start_pos, end_pos+1):
-                d[j][i] = ' '
+            if data[str(j)] != 'X':
+                start_time = data[str(j)].split(";")[0]
+                end_time = data[str(j)].split(";")[1]
+                start_hr = int(start_time.split(":")[0])
+                start_min = start_time.split(":")[1]
+                end_hr = int(end_time.split(":")[0])
+                end_min = end_time.split(":")[1]
+                start_pos = (start_hr - 8 + 3 * (start_hr-8)) + 1
+                if start_min == '15':
+                    start_pos += 1
+                elif start_min == '30':
+                    start_pos += 2
+                elif start_min == '45':
+                    start_pos += 3
+                end_pos = (end_hr - 8 + 3 * (end_hr - 8)) + 1
+                if end_min == '15':
+                    end_pos += 1
+                elif end_min == '30':
+                    end_pos += 2
+                elif end_min == '45':
+                    end_pos += 3
+                for i in range(start_pos, end_pos+1):
+                    d[j][i] = ' '
 
         output_file = os.getcwd() + '/templates/availability.csv'
         with open(output_file, 'w') as file:
