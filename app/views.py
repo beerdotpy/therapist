@@ -87,6 +87,7 @@ def get_timesheet(request):
         # Get total days for that particular month
         total_days = monthrange(datetime.today().year, int(data[str(41)]) + 1)[1]
         d = [['X' for i in range(49)] for j in range(total_days+1)]
+        d[0][0] = data[str(40)]
         # First row of matrix will contain time slots
         for i in range(1):
             min = 8
