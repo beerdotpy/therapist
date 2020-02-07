@@ -14,3 +14,9 @@ class SessionSerializer(serializers.Serializer):
     status = serializers.CharField(max_length=20, default='NEW')
     is_accepted = serializers.BooleanField()
     is_disputed = serializers.BooleanField()
+
+
+class AvailabilitySerializer(serializers.Serializer):
+    client_name = serializers.CharField(max_length=200)
+    month = serializers.IntegerField()
+    availability = serializers.CharField()

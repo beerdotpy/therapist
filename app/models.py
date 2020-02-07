@@ -41,3 +41,9 @@ class Timesheet(models.Model):
     client_name = models.CharField(max_length=200)
     is_accepted = models.BooleanField(default=False)
     month = models.IntegerField()
+
+
+class Availability(models.Model):
+    client_name = models.CharField(max_length=200)
+    month = models.IntegerField()
+    availability = models.TextField()

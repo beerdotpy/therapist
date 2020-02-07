@@ -16,16 +16,17 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from app.views import parse_csv, login, get_sessions, update_sessions, get_timesheet
+from app.views import parse_csv, login, get_sessions, update_sessions, get_timesheet, save_availability
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^create_session/', parse_csv),
     url(r'^advanced_filters/', include('advanced_filters.urls')),
     url(r'^login', login),
     url(r'^sessions/$', get_sessions),
+    url(r'^session/create/', parse_csv),
     url(r'^session/update/', update_sessions),
-    url(r'^session/timesheet/', get_timesheet)
+    url(r'^session/timesheet/', get_timesheet),
+    url(r'^session/availability/', save_availability)
 ]
 admin.site.site_header = "Functional Learning Centre Inc"
 admin.site.site_title = "Functional Learning Centre Inc"

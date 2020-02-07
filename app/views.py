@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.views.decorators.csrf import csrf_exempt
-from models import Session, TempSession, Timesheet
+from models import Session, TempSession, Timesheet, Availability
 from django.shortcuts import render
 from datetime import datetime
 import uuid
 from django.http import HttpResponse
 import json
 from rest_framework.renderers import JSONRenderer
-from serializers import SessionSerializer
+from serializers import SessionSerializer, AvailabilitySerializer
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail, EmailMessage
 import csv
@@ -82,7 +82,11 @@ def get_timesheet(request):
             serializer = SessionSerializer(sessions, many=True)
             response = {'status': is_accepted, 'sessions': serializer.data}
             return HttpResponse(JSONRenderer().render(response), status=200)
-    elif request.method == 'POST':
+
+
+@csrf_exempt
+def save_availability(request):
+    if request.method == 'POST':
         data = eval(request.body)
         # Get total days for that particular month
         total_days = monthrange(datetime.today().year, int(data[str(41)]) + 1)[1]
@@ -125,7 +129,7 @@ def get_timesheet(request):
                     end_pos += 3
                 for i in range(start_pos, end_pos+1):
                     d[j][i] = ' '
-
+        Availability(client_name=data[str(40)], month=int(data[str(41)]) + 1, availability=data).save()
         output_file = os.getcwd() + '/templates/availability.csv'
         with open(output_file, 'w') as file:
             writer = csv.writer(file)
@@ -142,6 +146,13 @@ def get_timesheet(request):
         msg.attach_file(output_file)
         msg.send()
         return HttpResponse(JSONRenderer().render({"status": "Availability submitted"}), status=200)
+    else:
+        try:
+            avail = Availability.objects.get(client_name=request.GET['client_name'], month=request.GET['month'])
+        except ObjectDoesNotExist:
+            return HttpResponse(json.dumps({"status": "Not found"}), 404)
+        serializer = AvailabilitySerializer(avail)
+        return HttpResponse(JSONRenderer().render(serializer.data), status=200)
 
 
 @csrf_exempt
