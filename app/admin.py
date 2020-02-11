@@ -31,6 +31,7 @@ class ProfileAdmin(AdminAdvancedFiltersMixin, admin.ModelAdmin):
     )
 
     list_filter = ['status', 'is_accepted', 'is_disputed', 'client_name', 'date']
+    exclude = ('updated_at',)
 
 
 admin.site.register(Session, ProfileAdmin)
