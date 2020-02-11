@@ -5,7 +5,7 @@ from django.db import models
 
 class Session(models.Model):
     client_initial = models.CharField(max_length=10)
-    client_name = models.CharField(max_length=200)
+    client_name = models.CharField(max_length=200, verbose_name='Client')
     duration = models.CharField(max_length=50)
     date = models.DateField()
     start_time = models.TimeField()
@@ -14,8 +14,8 @@ class Session(models.Model):
     notes = models.TextField()
     updated_at = models.CharField(max_length=50, blank=True, null=True)
     status = models.CharField(max_length=20, default='NEW')
-    is_disputed = models.BooleanField(default=False)
-    is_accepted = models.BooleanField(default=False)
+    is_disputed = models.BooleanField(default=False, verbose_name='Disputed')
+    is_accepted = models.BooleanField(default=False, verbose_name='Accepted')
 
     class Meta:
         ordering = ['client_name', 'date', 'start_time']
