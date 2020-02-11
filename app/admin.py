@@ -1,30 +1,36 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib import admin
-from app.models import Session
+from app.models import Session, Availability
 from advanced_filters.admin import AdminAdvancedFiltersMixin
 
 
 class ProfileAdmin(AdminAdvancedFiltersMixin, admin.ModelAdmin):
-    def start_time_format(self, obj):
+
+    def start_time(self, obj):
         return obj.start_time.strftime("%H:%M %p")
 
-    def end_time_format(self, obj):
+    def end_time(self, obj):
         return obj.end_time.strftime("%H:%M %p")
 
-    def date_format(self, obj):
+    def date(self, obj):
         return obj.date.strftime("%a %b %d")
 
-    list_display = ['client_name', 'date_format', 'start_time_format', 'duration', 'end_time_format', 'type', 'notes',
+    def client(self, obj):
+        return obj.client_name
+
+    list_display = ['client', 'date', 'start_time', 'duration', 'end_time', 'type', 'notes',
                     'status', 'is_accepted', 'is_disputed']
     # specify which fields can be selected in the advanced filter
     # creation form
     advanced_filter_fields = (
         'client_name',
-        'client_name'
+        'client_name',
+        'status',
+        'date',
     )
 
-    list_filter = ['status', 'is_accepted', 'is_disputed', 'client_name']
+    list_filter = ['status', 'is_accepted', 'is_disputed', 'client_name', 'date']
 
 
 admin.site.register(Session, ProfileAdmin)
