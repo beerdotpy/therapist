@@ -3,6 +3,13 @@ from __future__ import unicode_literals
 from django.db import models
 
 
+class User(models.Model):
+    name = models.CharField(max_length=200)
+    initial = models.CharField(max_length=10)
+    email = models.EmailField()
+    password = models.CharField(max_length=200)
+
+
 class Session(models.Model):
     client_initial = models.CharField(max_length=10)
     client_name = models.CharField(max_length=200, verbose_name='Client')
@@ -47,3 +54,7 @@ class Availability(models.Model):
     client_name = models.CharField(max_length=200)
     month = models.IntegerField()
     availability = models.TextField()
+
+
+class StatHolidays(models.Model):
+    date = models.DateField()

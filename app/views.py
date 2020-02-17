@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.views.decorators.csrf import csrf_exempt
-from models import Session, TempSession, Timesheet, Availability
+from models import Session, TempSession, Timesheet, Availability, User, StatHolidays
 from django.shortcuts import render
 from datetime import datetime
 import uuid
@@ -23,9 +23,12 @@ to_email = ['sarthakmeh03@gmail.com', 'kkalaawy@gmail.com']
 def login(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        if data['password'] == 'admin@2019':
-            name = data['email'].split("@")[0]
-            return HttpResponse(json.dumps({"status": "Authorized", "client_name": name}), status=200)
+        try:
+            user = User.objects.get(email=data['email'])
+        except ObjectDoesNotExist:
+            return HttpResponse(json.dumps({"status": "UnAuthorized"}), status=401)
+        if data['password'] == user.password:
+            return HttpResponse(json.dumps({"status": "Authorized", "client_name": user.name}), status=200)
         else:
             return HttpResponse(json.dumps({"status": "UnAuthorized"}), status=401)
 
@@ -50,7 +53,7 @@ def get_timesheet(request):
             dates = Session.objects.filter(client_name__icontains=request.GET['client_name']).dates('date', 'month', order="DESC")
             months = []
             for d in dates:
-                if datetime.today().date() > d:
+                if datetime.today().date() > d and datetime.today().date().month != d.month:
                     months.append(d.month)
             latest_month = -1
             if datetime.today().date().day > 5:
@@ -62,19 +65,19 @@ def get_timesheet(request):
             sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
                                               date__month=latest_month).exclude(status='Cancellation')
             try:
-                timesheet = Timesheet.objects.get(client_name=request.GET['client_name'],
+                timesheet = Timesheet.objects.get(client_name__icontains=request.GET['client_name'],
                                                   month=latest_month)
                 is_accepted = timesheet.is_accepted
             except ObjectDoesNotExist:
                 is_accepted = False
             serializer = SessionSerializer(sessions, many=True)
-            response = {'status': is_accepted, 'sessions': serializer.data, 'archive_months': months[1:]}
+            response = {'status': is_accepted, 'sessions': serializer.data, 'archive_months': months}
             return HttpResponse(JSONRenderer().render(response), status=200)
         else:
             sessions = Session.objects.filter(client_name__icontains=request.GET['client_name'],
                                               date__month=int(request.GET['month']) + 1).exclude(status='Cancellation')
             try:
-                timesheet = Timesheet.objects.get(client_name=request.GET['client_name'],
+                timesheet = Timesheet.objects.get(client_name__icontains=request.GET['client_name'],
                                                   month=int(request.GET['month']) + 1)
                 is_accepted = timesheet.is_accepted
             except ObjectDoesNotExist:
@@ -82,6 +85,16 @@ def get_timesheet(request):
             serializer = SessionSerializer(sessions, many=True)
             response = {'status': is_accepted, 'sessions': serializer.data}
             return HttpResponse(JSONRenderer().render(response), status=200)
+
+
+@csrf_exempt
+def get_stat_holidays(request):
+    if request.method == 'GET':
+        holidays = StatHolidays.objects.filter(date__month=datetime.today().month+1)
+        days = []
+        for i in holidays:
+            days.append(i.date.day)
+        return HttpResponse(JSONRenderer().render(days), status=200)
 
 
 @csrf_exempt

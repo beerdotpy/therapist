@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib import admin
-from app.models import Session, Availability
+from app.models import Session, User, StatHolidays
 from advanced_filters.admin import AdminAdvancedFiltersMixin
 
 
@@ -34,4 +34,14 @@ class ProfileAdmin(AdminAdvancedFiltersMixin, admin.ModelAdmin):
     exclude = ('updated_at',)
 
 
+class UserAdmin(admin.ModelAdmin):
+    list_display = ['initial', 'name', 'email']
+
+
+class StatHolidaysAdmin(admin.ModelAdmin):
+    list_display = ['date']
+
+
 admin.site.register(Session, ProfileAdmin)
+admin.site.register(User, UserAdmin)
+admin.site.register(StatHolidays, StatHolidaysAdmin)

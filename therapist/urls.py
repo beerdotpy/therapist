@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from app.views import parse_csv, login, get_sessions, update_sessions, get_timesheet, save_availability
+from app.views import parse_csv, login, get_sessions, update_sessions, get_timesheet, save_availability, get_stat_holidays
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,7 +26,8 @@ urlpatterns = [
     url(r'^session/create/', parse_csv),
     url(r'^session/update/', update_sessions),
     url(r'^session/timesheet/', get_timesheet),
-    url(r'^session/availability/', save_availability)
+    url(r'^session/availability/', save_availability),
+    url(r'^session/holidays', get_stat_holidays)
 ]
 admin.site.site_header = "Functional Learning Centre Inc"
 admin.site.site_title = "Functional Learning Centre Inc"
