@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib import admin
-from app.models import Session, User, StatHolidays
+from app.models import Session, User, StatHoliday
 from advanced_filters.admin import AdminAdvancedFiltersMixin
 
 
@@ -44,4 +44,4 @@ class StatHolidaysAdmin(admin.ModelAdmin):
 
 admin.site.register(Session, ProfileAdmin)
 admin.site.register(User, UserAdmin)
-admin.site.register(StatHolidays, StatHolidaysAdmin)
+admin.site.register(StatHoliday, StatHolidaysAdmin)

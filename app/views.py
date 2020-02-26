@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.views.decorators.csrf import csrf_exempt
-from models import Session, TempSession, Timesheet, Availability, User, StatHolidays
+from models import Session, TempSession, Timesheet, Availability, User, StatHoliday
 from django.shortcuts import render
 from datetime import datetime
 import uuid

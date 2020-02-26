@@ -56,5 +56,5 @@ class Availability(models.Model):
     availability = models.TextField()
 
 
-class StatHolidays(models.Model):
+class StatHoliday(models.Model):
     date = models.DateField()
