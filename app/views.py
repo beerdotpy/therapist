@@ -262,7 +262,7 @@ def parse_csv(request):
     if request.method == 'POST':
         if request.POST['button'] == 'Upload':
             csv_file = request.FILES['csv_file']
-            result_list = check_csv(csv_file)
+            result_list = check_csv(csv_file, request.POST['year'])
             return render(request, "home.html", {"result": result_list, "button_type": "Review", "file": csv_file})
         elif request.POST['button'] == 'Review':
             result_list = check_records(request.POST['data'])
@@ -273,7 +273,7 @@ def parse_csv(request):
     return render(request, "home.html", {"button_type": "Upload"})
 
 
-def check_csv(csv_file):
+def check_csv(csv_file, year):
     TempSession.objects.all().delete()
     csv_reader = csv.reader(csv_file)
     name = ""
@@ -284,7 +284,7 @@ def check_csv(csv_file):
         if row[2] != '>' and row[0] != '' and row[2] != 'Date':
             start_time = datetime.strptime(row[4], "%I:%M %p").time()
             end_time = datetime.strptime(row[6], "%I:%M %p").time()
-            date = datetime.strptime((row[2] + " " + str(datetime.now().year)).replace(" ", "/"), "%a/%b/%d/%Y").date()
+            date = datetime.strptime((row[2] + " " + str(year)).replace(" ", "/"), "%a/%b/%d/%Y").date()
             session = TempSession()
             session.client_initial = row[0]
             session.notes = row[7]
