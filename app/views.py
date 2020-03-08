@@ -321,11 +321,12 @@ def check_records(filename):
     result_list = []
     name = ""
     month = -1
+    year = -1
     id = uuid.uuid1(4)
     for row in list(records):
         if name == "" or name != row.client_name:
             # records which are present in the admin panel but have been removed from csv
-            for i in Session.objects.filter(client_name=name, date__month=row.date.month).exclude(updated_at=id):
+            for i in Session.objects.filter(client_name=name, date__month=row.date.month, date__year=row.date.year).exclude(updated_at=id):
                 session = TempSession()
                 session.client_initial = i.client_initial
                 session.notes = i.notes
@@ -341,6 +342,7 @@ def check_records(filename):
                 result_list.append(session)
             name = row.client_name
             month = row.date.month
+            year = row.date.year
 
         result_1 = check_duplicate(row.client_name, row.client_initial, row.date, row.start_time, row.duration,
                                    row.end_time, row.notes, row.type, False, id)
@@ -396,7 +398,7 @@ def check_records(filename):
                             'start_time': row.start_time, 'duration': row.duration, 'end_time': row.end_time,
                             'notes': row.notes, 'type': row.type, 'error': 'NEW'}
                     result_list.append(data)
-    for i in Session.objects.filter(client_name=name, date__month=month).exclude(updated_at=id):
+    for i in Session.objects.filter(client_name=name, date__month=month,  date__year=year).exclude(updated_at=id):
         session = TempSession()
         session.client_initial = i.client_initial
         session.notes = i.notes
