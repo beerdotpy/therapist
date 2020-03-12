@@ -23,6 +23,7 @@ class Session(models.Model):
     status = models.CharField(max_length=20, default='NEW')
     is_disputed = models.BooleanField(default=False, verbose_name='Disputed')
     is_accepted = models.BooleanField(default=False, verbose_name='Accepted')
+    disputed_message = models.TextField(default=False, blank=True)
 
     class Meta:
         ordering = ['client_name', 'date', 'start_time']
