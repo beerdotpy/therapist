@@ -219,7 +219,7 @@ def update_sessions(request):
             else:
                 session.status = 'Request Sent'
                 session.save()
-                message = request.GET['client_name'] + " has requested cancellation in the below session<br>" \
+                message = request.GET['client_name'] + " has requested cancellation to the below session<br>" \
                           + "<br>Start Time - " + request.GET['start_time'] + "<br>End Time - " + request.GET[
                               'end_time'] + \
                           "<br>Date - " + request.GET['date']
