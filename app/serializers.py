@@ -14,7 +14,7 @@ class SessionSerializer(serializers.Serializer):
     status = serializers.CharField(max_length=20, default='NEW')
     is_accepted = serializers.BooleanField()
     is_disputed = serializers.BooleanField()
-    disputed_message = serializers.TextField()
+    disputed_message = serializers.CharField(max_length=240)
 
 
 class AvailabilitySerializer(serializers.Serializer):
